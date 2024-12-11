@@ -2,24 +2,26 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
-
+subtitle: A Tech geek, codes are my toys and bugs are my challenges.
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Xidian University, Xi'an ShanXi P.R. China</p>
 
-news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+news: false # includes a list of news items
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
+Hi, there. This is Yukun Zhou (周钰坤 in Chinese)! Now, I am in my senior year of [Xidian University](https://www.xidian.edu.cn/). I got research experience to be a research assistant supervised by [Kai Wang](https://kaiwang960112.github.io/) and [Xiaojiang Peng](https://pengxj.github.io/) in my junior year. In my sophomore and freshman years, I received valuable guidance from senior [Linghao Chen](https://lhchen.top/) and colleague [Norm Inui](https://normxu.github.io/about/) respectively.
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Meanwhile, I am currently working on developing a controllable AIGC system at a startup, [GigaAI](https://gigaai.cc/) advised by Xinze Chen and [Zheng Zhu](https://scholar.google.com/citations?user=NmwjI0AAAAAJ&hl=en). My learning interests cover various domains, including but not limited to:
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+* Data Engineering
+* AIGC using controllable Diffusion Models.
+* Spatial Intelligence including 3D reconstruction of scene and character.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+**Motto**: Bridge chasm, grasp chance, and embrace change!
+
+This website is a platform to share my inspirations. Hope it can be helpful to you.
