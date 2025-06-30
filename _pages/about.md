@@ -19,8 +19,8 @@ Hi, there. This is Yukun Zhou (周钰坤 in Chinese)! Now, I am in my senior yea
 Meanwhile, I am currently working on developing a controllable AIGC system at a startup, [GigaAI](https://gigaai.cc/) advised by Xinze Chen and [Zheng Zhu](https://scholar.google.com/citations?user=NmwjI0AAAAAJ&hl=en). My learning interests cover various domains, including but not limited to:
 
 * Data Engineering
-* AIGC using controllable Diffusion Models.
-* Spatial Intelligence including 3D reconstruction of scene and character.
+* AIGC.
+* Spatial Intelligence and Embodied Artificial Intelligence.
 
 **Motto**: Bridge chasm, grasp chance, and embrace change!
 
