@@ -17,12 +17,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
+  I am now an Algorithm Engineer at GigaAI, working under the supervision <a href="http://www.zhengzhu.net/">Zheng Zhu</a> and <a href="https://scholar.google.com/citations?hl=zh-CN&user=a5nrMUkAAAAJ">Xinze Chen</a>. In June 2025, I obtained my Bachelor's degree from <a href="https://www.xidian.edu.cn/">Xidian University</a>. During my undergraduate studies, I worked as a research intern under the guidance of <a href="https://kaiwang960112.github.io//">Kai Wang</a> in <a href="https://ai.comp.nus.edu.sg/">NUS-HPC-AI-Lab</a>. I also interned at the <a href="https://www.datagrand.com">DataGrand</a> with Dr. <a href="https://normxu.github.io/about/">Nuo Xu</a>.
 
-  <div style="font-size:1.1em; margin-bottom:1em;">
-
-  I am now an Algorithm Engineer at GigaAI advised by <a href="http://www.zhengzhu.net/">Zheng Zhu</a> and <a href="https://scholar.google.com/citations?hl=zh-CN&user=a5nrMUkAAAAJ">Xinze Chen</a>, focusing on World Model and Embodiment AI with <a href='https://scholar.google.com/citations?user=c0WCD74AAAAJ&hl=zh-CN'>Google Scholar citations 372</a>. 
-  I am exploring potential PhD opportunities in my field of interest.
-  </div>
+  I am exploring potential PhD opportunities in my field of interest. Feel free to reach out at [email](mailto:ykzhou8981389@gmail.com)!
 
 
 <!-- # 🔥 News
