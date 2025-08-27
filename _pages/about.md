@@ -19,6 +19,8 @@ redirect_from:
 
   I am now an Algorithm Engineer at GigaAI, working under the supervision <a href="http://www.zhengzhu.net/">Zheng Zhu</a> and <a href="https://scholar.google.com/citations?hl=zh-CN&user=a5nrMUkAAAAJ">Xinze Chen</a>. In June 2025, I obtained my Bachelor's degree from <a href="https://www.xidian.edu.cn/">Xidian University</a>. During my undergraduate studies, I worked as a research intern under the guidance of <a href="https://kaiwang960112.github.io//">Kai Wang</a> in <a href="https://ai.comp.nus.edu.sg/">NUS-HPC-AI-Lab</a>. I also interned at the <a href="https://www.datagrand.com">DataGrand</a> with Dr. <a href="https://normxu.github.io/about/">Nuo Xu</a>.
 
+  My research interests include **world models**, **reinforcement learning** and **embodied intelligence**. I hope to have the opportunity to explore the integration of world models for comprehensive environmental data and reinforcement models for intelligent decision-making, and to make modest contributions to the development of AI systems.
+
   I am exploring potential PhD opportunities in my field of interest. Feel free to reach out at [email](mailto:ykzhou8981389@gmail.com)!
 
 
@@ -105,7 +107,7 @@ Xiaoyi Bao, et al, **Yukun Zhou**, et al.
 Kai Wang, Zhaopan Xu, **Yukun Zhou**, et al.
 
 [<i class="fab fa-fw fa-github" aria-hidden="true"></i> **Code**](https://github.com/NUS-HPC-AI-Lab/Neural-Network-Diffusion) &nbsp; [<i class="fas fa-fw fa-file-alt" aria-hidden="true"></i>  **Paper**](https://arxiv.org/pdf/2402.13144v2)
-- we demonstrate that diffusion models can also generate high-performing neural network parameters.
+- We demonstrate that diffusion models can also generate high-performing neural network parameters.
 </div>
 </div>
 
