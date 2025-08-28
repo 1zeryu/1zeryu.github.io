@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-  I am now an Algorithm Engineer at GigaAI, working under the supervision <a href="http://www.zhengzhu.net/">Zheng Zhu</a> and <a href="https://scholar.google.com/citations?hl=zh-CN&user=a5nrMUkAAAAJ">Xinze Chen</a>. In June 2025, I obtained my Bachelor's degree from <a href="https://www.xidian.edu.cn/">Xidian University</a>. During my undergraduate studies, I worked as a research intern under the guidance of <a href="https://kaiwang960112.github.io//">Kai Wang</a> in <a href="https://ai.comp.nus.edu.sg/">NUS-HPC-AI-Lab</a>. I also interned at the <a href="https://www.datagrand.com">DataGrand</a> with Dr. <a href="https://normxu.github.io/about/">Nuo Xu</a>.
+  I am now an Algorithm Engineer at GigaAI, working under the supervision of <a href="http://www.zhengzhu.net/">Zheng Zhu</a> and <a href="https://scholar.google.com/citations?hl=zh-CN&user=a5nrMUkAAAAJ">Xinze Chen</a>. In June 2025, I obtained my Bachelor's degree from <a href="https://www.xidian.edu.cn/">Xidian University</a>. During my undergraduate studies, I worked as a research intern under the guidance of <a href="https://kaiwang960112.github.io//">Kai Wang</a> in <a href="https://ai.comp.nus.edu.sg/">NUS-HPC-AI-Lab</a>. I also interned at the <a href="https://www.datagrand.com">DataGrand</a> with Dr. <a href="https://normxu.github.io/about/">Nuo Xu</a>.
 
   My research interests include **world models**, **reinforcement learning** and **embodied intelligence**. I hope to have the opportunity to explore the integration of world models for comprehensive environmental data and reinforcement models for intelligent decision-making, and to make modest contributions to the development of AI systems.
 
