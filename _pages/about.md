@@ -27,7 +27,7 @@ redirect_from:
 <!-- # 🔥 News
 - *2025.07*: &nbsp; .  -->
 
-# 📝 Selected Work
+# 📝 Selected Public Work
 
 <!-- ## Projects
 
