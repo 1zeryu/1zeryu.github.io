@@ -19,15 +19,15 @@ redirect_from:
 
   I am now an algorithm researcher at an AI startup GigaAI, working under the supervision of <a href="http://www.zhengzhu.net/">Zheng Zhu</a> and <a href="https://scholar.google.com/citations?hl=zh-CN&user=a5nrMUkAAAAJ">Xinze Chen</a>. In June 2025, I obtained my Bachelor's degree from <a href="https://www.xidian.edu.cn/">Xidian University</a>. During my undergraduate studies, I worked as a research intern in <a href="https://ai.comp.nus.edu.sg/">NUS-HPC-AI-Lab</a>. I also interned at the <a href="https://www.datagrand.com">DataGrand</a> with Dr. <a href="https://normxu.github.io/about/">Nuo Xu</a>.
 
-  My research interests include **world models**, **reinforcement learning** and **embodied intelligence**. I hope to have the opportunity to explore the integration of world models for comprehensive environmental data and reinforcement models for intelligent decision-making, and to make modest contributions to the development of AI systems.
-
-  I am exploring potential PhD opportunities in my field of interest. Feel free to reach out at [email](mailto:ykzhou8981389@gmail.com)!
+  My research interests include **world models**, **visual generation** and **embodied intelligence**. I am exploring potential PhD opportunities in my field of interest. Feel free to reach out at [email](mailto:ykzhou8981389@gmail.com)!
 
 
 <!-- # 🔥 News
 - *2025.07*: &nbsp; .  -->
 
-# 📝 Selected Public Work
+# 📝 Selected Works
+
+Below present the selected publications. The full list of publications can be obtained via My <a href="https://scholar.google.com/citations?user=c0WCD74AAAAJ&hl=zh-CN">Google Scholar</a>.
 
 <!-- ## Projects
 
@@ -45,7 +45,7 @@ Project participant as Algorithm Engineer of GigaAI.
 
 ## Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2025</div><img src='images/humandreamer.png' alt="sym" width="100%"></div></div>
+<!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2025</div><img src='images/humandreamer.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [HumanDreamer: Generating Controllable Human-Motion Videos
@@ -56,7 +56,9 @@ Boyuan Wang, et al, **Yukun Zhou**, et al.
 [<i class="fa fa-solid fa-cube" aria-hidden="true"></i> **Project**](https://humandreamer.github.io/) &nbsp; [<i class="fas fa-fw fa-database" aria-hidden="true"></i> **Dataset**](https://huggingface.co/datasets/chuanshuogushi/MotionVid) &nbsp; [<i class="fas fa-fw fa-file-alt" aria-hidden="true"></i> **Paper**](https://openaccess.thecvf.com/content/CVPR2025/papers/Wang_HumanDreamer_Generating_Controllable_Human-Motion_Videos_via_Decoupled_Generation_CVPR_2025_paper.pdf)
 - HumanDreamer is a decoupled human video generation framework that first generates diverse poses from text prompts and then leverages these poses to generate human-motion videos.
 </div>
-</div>
+</div> -->
+
+
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2025</div><img src='images/Speed_demo.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -84,7 +86,7 @@ Ziheng Qin, Zhaopan Xu, **Yukun Zhou**, et al.
 </div>
 
 
-## Preprints
+<!-- ## Preprints
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/gigavideo-1.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -97,9 +99,9 @@ Xiaoyi Bao, et al, **Yukun Zhou**, et al.
 [<i class="fa fa-solid fa-cube" aria-hidden="true"></i> **Project**](https://gigavideo-1.github.io/) &nbsp; [<i class="fas fa-fw fa-file-alt" aria-hidden="true"></i> **Paper**](https://arxiv.org/pdf/2506.10639)
 - GigaVideo-1 consistently improves performance on almost all the dimensions with an average gain of ~4% using only 4 GPU-hours.
 </div>
-</div>
+</div> -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/p-diff.png' alt="sym" width="100%"></div></div>
+<!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/p-diff.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Neural Network Parameter Diffusion](https://arxiv.org/pdf/2402.13144v2)
@@ -109,7 +111,7 @@ Kai Wang, Zhaopan Xu, **Yukun Zhou**, et al.
 [<i class="fab fa-fw fa-github" aria-hidden="true"></i> **Code**](https://github.com/NUS-HPC-AI-Lab/Neural-Network-Diffusion) &nbsp; [<i class="fas fa-fw fa-file-alt" aria-hidden="true"></i>  **Paper**](https://arxiv.org/pdf/2402.13144v2)
 - We demonstrate that diffusion models can also generate high-performing neural network parameters.
 </div>
-</div>
+</div> -->
 
 
 <!-- # 🎖 Honors and Awards
@@ -117,6 +119,18 @@ Kai Wang, Zhaopan Xu, **Yukun Zhou**, et al.
 - *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 
 ## Projects
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Technical Report</div><img src='images/gigaworld-0.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[GigaWorld-0: World Models as Data Engine to Empower Embodied AI](https://giga-world-0.github.io/)
+
+Responsible for the training and evaluation of the video foundation model in GigaWorld-0, as well as the fine-tuning of downstream tasks and inference acceleration.
+
+[<i class="fab fa-fw fa-github" aria-hidden="true"></i> **Code**](https://github.com/open-gigaai/giga-world-0) &nbsp; [<i class="fas fa-fw fa-file-alt" aria-hidden="true"></i>  **Paper**](https://arxiv.org/pdf/2511.19861) &nbsp; [<i class="fas fa-project-diagram"></i> **Model**](https://huggingface.co/open-gigaai)
+- A unified world model framework designed explicitly as a data engine for Vision-Language-Action learning
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Open-Source Project</div><img src='images/opensora_demo.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
