@@ -17,13 +17,21 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-  I am now an algorithm researcher at an AI startup GigaAI, working under the supervision of <a href="http://www.zhengzhu.net/">Zheng Zhu</a> and <a href="https://scholar.google.com/citations?hl=zh-CN&user=a5nrMUkAAAAJ">Xinze Chen</a>. In June 2025, I obtained my Bachelor's degree from <a href="https://www.xidian.edu.cn/">Xidian University</a>. During my undergraduate studies, I worked as a research intern in <a href="https://ai.comp.nus.edu.sg/">NUS-HPC-AI-Lab</a>. I also interned at the <a href="https://www.datagrand.com">DataGrand</a> with Dr. <a href="https://normxu.github.io/about/">Nuo Xu</a>.
+  I am about to start Research Assistant in Nanyang Technological University, working under the supervision of <a href="https://jwbian.net/">Jianwei Bian</a>.
+  I previously worked as an algorithm researcher at the AI startup GigaAI. In June 2025, I obtained my Bachelor's degree from <a href="https://www.xidian.edu.cn/">Xidian University</a>. During my undergraduate studies, I worked as a research intern in <a href="https://ai.comp.nus.edu.sg/">NUS-HPC-AI-Lab</a>. I also interned at the <a href="https://www.datagrand.com">DataGrand</a> with Dr. <a href="https://normxu.github.io/about/">Nuo Xu</a>.
 
-  My research interests include **world models**, **visual generation** and **embodied intelligence**. I am exploring potential PhD opportunities in my field of interest. Feel free to reach out at [email](mailto:ykzhou8981389@gmail.com)!
+  **Research Interests**: world models, visual generation and embodied intelligence.
 
 
 <!-- # 🔥 News
 - *2025.07*: &nbsp; .  -->
+
+# 🔥 News
+
+- *2025.07*: &nbsp; Two papers accepted to CVPR 2025 (HumanDreamer, SpeeD)
+- *2024.07*: &nbsp; One paper accepted to ECCV 2024 (InfoGrowth)
+- *2024.05*: &nbsp; Open-Sora has been released. Congratulations! 
+
 
 # 📝 Selected Works
 
@@ -163,8 +171,8 @@ Project participant as intern of Luchen Technology.
 
  &nbsp;
 
-<div style="max-width:300px; margin:auto;">
+<!-- <div style="max-width:300px; margin:auto;">
   <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=uoPj1f-PAOoHtVcnNm8UsbEN95b7HfMvqBaKGxMNv-U&cl=ffffff&w=300"></script>
-</div>
+</div> -->
 <!-- <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=mDd3qmhvqv64vdye5bjCkzmKat0KqufhB1RJXbJ1a9w"></script> -->
 <!-- <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=tt&d=Dv2XJvfFsJgeunE6i3OYfBPY7jcGv2zSILN4rwgNYH8&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353'></script> -->
