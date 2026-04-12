@@ -154,17 +154,17 @@ Project participant as intern of Luchen Technology.
 
 
 
-# 📖 Educations
-- *2021.09 - 2025.06*, School of Computer Science and Technology, Xidian University.
+<!-- # 📖 Educations
+- *2021.09 - 2025.06*, School of Computer Science and Technology, Xidian University. -->
 
 <!-- # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
 
-# 💻 Internships
+<!-- # 💻 Internships
 - *2023.07-2023.10*, [Data Grand](https://www.datagrand.com/), China.
 - *2024.05-2024.07*, [Luchen Technology](https://www.luchentech.com/), China.
-- *2024.08-2025.06*, [GigaAI](https://gigaai.cc/), China.
+- *2024.08-2025.06*, [GigaAI](https://gigaai.cc/), China. -->
 
 <!-- # 👍 Friends
 -  -->
