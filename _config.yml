@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yukun Zhou (周钰坤)"
-description              : "Algorithm researcher at GigaAI, focusing on World Model and Embodiment AI."
+description              : "Algorithm researcher, focusing on World Model and Embodiment AI."
 url                      : "https://1zeryu.github.io"
 baseurl                  : ""
 repository               : "1zeryu/1zeryu.github.io"
@@ -26,7 +26,7 @@ author:
   name             : "Yukun Zhou"
   avatar           : "images/avatar.jpg"
   cn_name          : "周钰坤"
-  bio              : "GigaAI"
+  bio              : "Research Scientist"
   location         : "Beijing, China"
   employer         :
   pubmed           : 
