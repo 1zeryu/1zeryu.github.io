@@ -28,6 +28,7 @@ redirect_from:
 
 # 🔥 News
 
+- *2026.06*: &nbsp; Successfully concluded the GigaWorld Track of the GigaBrain Challenge (CVPR 2026 Workshop) ([link](https://gigaai-research.github.io/GigaBrain-Challenge-2026/index.html#about))
 - *2025.07*: &nbsp; Two papers accepted to CVPR 2025 (HumanDreamer, SpeeD)
 - *2024.07*: &nbsp; One paper accepted to ECCV 2024 (InfoGrowth)
 - *2024.05*: &nbsp; Open-Sora has been released. Congratulations! 
