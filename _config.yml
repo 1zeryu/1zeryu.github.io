@@ -24,7 +24,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Yukun Zhou"
-  avatar           : "images/avatar.jpg"
+  avatar           : "images/avatar.png"
   cn_name          : "周钰坤"
   bio              : "Research Scientist"
   location         : "Beijing, China"
