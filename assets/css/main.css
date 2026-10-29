@@ -477,6 +477,16 @@ body {
     }
 }
 
+/* Standalone pages (About, Search, …) never use the right-hand rail: their
+   outline stays as the collapsible block above the content. */
+.kind-page .post-toc-side {
+    display: none;
+}
+
+.kind-page .post-toc-inline {
+    display: block;
+}
+
 .post-content {
     margin-top: 34px;
 }
@@ -801,17 +811,18 @@ body {
 /* ---------- Publications ---------- */
 
 .pub-list {
-    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 26px;
+    margin: 1.3em 0 0;
     padding: 0;
     list-style: none;
 }
 
 .pub-item {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 22px;
-    align-items: start;
-    padding: 18px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .pub-thumb img {
@@ -878,13 +889,9 @@ body {
         font-size: 17px;
     }
 
-    .pub-item {
+    .pub-list {
         grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .pub-thumb {
-        max-width: 260px;
+        gap: 26px;
     }
 
     .site-header {
@@ -911,14 +918,12 @@ body {
         font-size: 25px;
     }
 
-    .entry-list li,
-    .pub-item {
+    .entry-list li {
         flex-direction: column;
         gap: 1px;
     }
 
-    .entry-date,
-    .pub-venue {
+    .entry-date {
         flex: none;
         padding-top: 0;
     }
