@@ -117,10 +117,25 @@ body {
     padding: 0 24px;
 }
 
-/* Pages marked `wide: true` in front matter use a wider, still centred column. */
+/* Pages marked `wide: true` in front matter: a centred column, everything
+   inside it centred as well. */
 .page-wide .container {
-    max-width: 1400px;
+    max-width: 1080px;
     padding: 0 24px;
+}
+
+.page-wide .post-content {
+    text-align: center;
+}
+
+.page-wide .post-header {
+    text-align: center;
+}
+
+.page-wide .post-meta,
+.page-wide .pub-links,
+.page-wide .entry-list li {
+    justify-content: center;
 }
 
 /* Posts use a wider measure: the article takes roughly 70% of the viewport
@@ -835,6 +850,7 @@ body {
 
 .pub-thumb {
     aspect-ratio: 16 / 10;
+    overflow: hidden;
     border: 1px solid var(--rule);
 }
 
@@ -842,7 +858,8 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center top;
 }
 
 .pub-venue {
