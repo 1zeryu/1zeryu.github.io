@@ -623,6 +623,15 @@ body {
     color: var(--muted);
 }
 
+/* Group headings on the tags page, which also lists categories. */
+.term-group-title {
+    margin: 2em 0 0;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+}
+
 .post-tag {
     color: var(--muted);
     text-decoration: none;

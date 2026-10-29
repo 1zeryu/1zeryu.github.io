@@ -11,9 +11,6 @@
 <meta name="author" content="{{ . }}">
 {{- end }}
 <link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | relURL }}" title="{{ site.Title }}">
-{{- with site.Params.favicon }}
-<link rel="icon" href="{{ . | relURL }}">
-{{- end }}
 {{- $css := resources.Get "css/main.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 <link rel="stylesheet" href="{{ "css/chroma.css" | relURL }}">

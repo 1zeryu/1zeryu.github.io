@@ -11,9 +11,10 @@ hasCJKLanguage = true
 
 # No theme: layouts live in ./layouts
 
-# Only tags are used as a taxonomy
+# Tags are keywords, categories are broad groupings
 [taxonomies]
 tag = "tags"
+category = "categories"
 
 # searchindex.json feeds the client-side search page
 [outputs]
@@ -31,7 +32,6 @@ pagerSize = 10
 [params]
 description = "Research scientist working on world models, visual generation and embodied intelligence."
 author = "Yukun Zhou"
-favicon = "/favicon.png"
 # Show "N 分钟" reading time on post pages
 showReadingTime = true
 # Full content in RSS

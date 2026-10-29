@@ -1,10 +1,24 @@
 {{ define "main" }}
     <header class="page-header">
         <h1 class="page-title">{{ .Title }}</h1>
-        {{ with .Params.description }}<p class="page-desc">{{ . }}</p>{{ end }}
-        <p class="page-meta">{{ len .Data.Terms }} tags</p>
+        <p class="page-meta">{{ if eq .Data.Plural "tags" }}{{ len site.Taxonomies.categories }} categories · {{ end }}{{ len .Data.Terms }} {{ .Data.Plural }}</p>
     </header>
 
+    {{- if eq .Data.Plural "tags" }}
+    {{- with site.Taxonomies.categories }}
+    <h2 class="term-group-title">Categories</h2>
+    <ul class="tag-list">
+        {{ range .Alphabetical }}
+        <li>
+            <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+            <span class="tag-count">{{ .Count }}</span>
+        </li>
+        {{ end }}
+    </ul>
+    {{- end }}
+    {{- end }}
+
+    <h2 class="term-group-title">{{ if eq .Data.Plural "tags" }}Tags{{ else }}{{ .Title }}{{ end }}</h2>
     <ul class="tag-list">
         {{ range .Data.Terms.Alphabetical }}
         <li>
