@@ -35,8 +35,8 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--serif);
-    font-size: 18px;
-    line-height: 1.8;
+    font-size: 15px;
+    line-height: 1.9;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -177,8 +177,8 @@ body {
 
 .home-intro p {
     margin: 0 0 1.05em;
-    font-size: 18.5px;
-    line-height: 1.85;
+    font-size: 16px;
+    line-height: 1.9;
 }
 
 .home-intro p:last-child {
@@ -276,7 +276,7 @@ body {
 
 .entry-title {
     color: var(--text);
-    font-size: 17.5px;
+    font-size: 15px;
     text-decoration: none;
 }
 
@@ -288,14 +288,14 @@ body {
 
 .entry-desc {
     margin: 2px 0 0;
-    font-size: 14.5px;
+    font-size: 13.5px;
     line-height: 1.65;
     color: var(--muted);
 }
 
 .entry-text {
-    font-size: 16.5px;
-    line-height: 1.75;
+    font-size: 15px;
+    line-height: 1.8;
 }
 
 .entry-text a {
@@ -316,7 +316,7 @@ body {
 
 .page-title {
     margin: 0;
-    font-size: 30px;
+    font-size: 27px;
     font-weight: 600;
     line-height: 1.35;
     letter-spacing: -0.005em;
@@ -324,14 +324,14 @@ body {
 
 .page-desc {
     margin: 8px 0 0;
-    font-size: 16.5px;
+    font-size: 14.5px;
     color: var(--muted);
 }
 
 .page-meta {
     margin: 6px 0 0;
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--muted);
 }
 
@@ -343,7 +343,7 @@ body {
 
 .post-title {
     margin: 0;
-    font-size: 31px;
+    font-size: 28px;
     font-weight: 600;
     line-height: 1.35;
     letter-spacing: -0.005em;
@@ -356,7 +356,7 @@ body {
     gap: 8px;
     margin-top: 12px;
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--muted);
 }
 
@@ -386,7 +386,7 @@ body {
     margin: 30px 0 0;
     padding: 2px 0 2px 16px;
     border-left: 2px solid var(--rule);
-    font-size: 14.5px;
+    font-size: 13.5px;
 }
 
 .post-toc summary {
@@ -451,13 +451,13 @@ body {
         position: fixed;
         top: 96px;
         right: 24px;
-        width: 260px;
+        width: 300px;
         max-height: calc(100vh - 170px);
         overflow-y: auto;
         padding-left: 24px;
         border-left: 1px solid var(--rule);
         font-family: var(--sans);
-        font-size: 13px;
+        font-size: 13.5px;
         line-height: 1.6;
     }
 
@@ -584,7 +584,7 @@ body {
 
 .post-nav-title {
     font-family: var(--serif);
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.5;
     color: var(--text);
 }
@@ -605,7 +605,7 @@ body {
     padding: 0;
     list-style: none;
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 13.5px;
 }
 
 .tag-list a {
@@ -657,7 +657,7 @@ body {
     background: transparent;
     color: var(--text);
     font-family: var(--sans);
-    font-size: 16px;
+    font-size: 15px;
     outline: none;
 }
 
@@ -764,9 +764,39 @@ body {
 
 .post-content img {
     display: block;
-    max-width: 100%;
+    max-width: min(100%, 520px);
     height: auto;
     margin: 1.8em auto;
+    cursor: zoom-in;
+}
+
+/* ---------- Image lightbox ---------- */
+
+/* Clicking an inline image opens it at full size on a plain white sheet,
+   which keeps small diagrams readable without leaving the page. */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.96);
+    cursor: zoom-out;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: calc(100vh - 64px);
+    width: auto;
+    height: auto;
+    margin: 0;
+    border: 1px solid var(--rule);
 }
 
 .post-content figure {
@@ -776,7 +806,7 @@ body {
 .post-content figcaption {
     margin-top: 8px;
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--muted);
     text-align: center;
 }
@@ -822,7 +852,7 @@ body {
     background: var(--code-bg);
     border: 1px solid var(--code-border);
     border-radius: 3px;
-    font-size: 13.5px;
+    font-size: 13px;
     line-height: 1.65;
 }
 
@@ -882,7 +912,7 @@ body {
 .pub-venue {
     margin-bottom: 5px;
     font-family: var(--sans);
-    font-size: 11.5px;
+    font-size: 11px;
     letter-spacing: 0.06em;
     color: var(--muted);
 }
@@ -895,7 +925,7 @@ body {
 }
 
 .pub-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
 }
@@ -903,7 +933,7 @@ body {
 .pub-authors,
 .pub-desc {
     margin-top: 3px;
-    font-size: 12.5px;
+    font-size: 12px;
     line-height: 1.6;
     color: var(--muted);
 }
@@ -919,7 +949,7 @@ body {
     margin-top: auto;
     padding-top: 10px;
     font-family: var(--sans);
-    font-size: 12.5px;
+    font-size: 12px;
 }
 
 .pub-links a {
@@ -942,7 +972,7 @@ body {
 
 @media (max-width: 640px) {
     body {
-        font-size: 17px;
+        font-size: 14.5px;
     }
 
     .pub-list {

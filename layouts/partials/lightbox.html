@@ -1,0 +1,37 @@
+<script>
+    // Opens inline article images at full size; click anywhere or press Esc to close.
+    (function () {
+        var overlay = document.createElement("div");
+        overlay.className = "lightbox";
+        overlay.hidden = true;
+
+        var big = document.createElement("img");
+        big.decoding = "async";
+        overlay.appendChild(big);
+        document.body.appendChild(overlay);
+
+        function close() {
+            overlay.hidden = true;
+            big.removeAttribute("src");
+        }
+
+        function open(img) {
+            big.src = img.currentSrc || img.src;
+            big.alt = img.alt || "";
+            overlay.hidden = false;
+        }
+
+        document.addEventListener("click", function (e) {
+            var img = e.target.closest ? e.target.closest(".post-content img") : null;
+            if (img && !img.closest(".pub-thumb")) {
+                open(img);
+                return;
+            }
+            if (!overlay.hidden) close();
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && !overlay.hidden) close();
+        });
+    })();
+</script>

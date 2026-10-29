@@ -9,5 +9,6 @@
             {{- block "main" . }}{{- end }}
         </main>
         {{- partial "footer.html" . -}}
+        {{- if .IsPage }}{{- partial "lightbox.html" . -}}{{- end }}
     </body>
 </html>
