@@ -1,0 +1,95 @@
+{{ define "main" }}
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">{{ .Title }}</h1>
+            <div class="post-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+                {{- if site.Params.showReadingTime }}
+                <span class="meta-dot">·</span>
+                <span>{{ .ReadingTime }} 分钟</span>
+                {{- end }}
+                <button type="button" class="print-button" onclick="if (window.umami && typeof window.umami.track === 'function') { window.umami.track('export_pdf'); } window.print();">导出 PDF</button>
+            </div>
+        </header>
+
+        {{- with .TableOfContents }}
+        {{- if gt (len .) 40 }}
+        {{/* 宽屏时目录固定在左侧，窄屏时折叠在正文上方；两份同一份目录，避免额外 JS。 */}}
+        <aside class="post-toc-side">
+            <p class="post-toc-label">目录</p>
+            {{ . }}
+        </aside>
+        <details class="post-toc post-toc-inline">
+            <summary>目录</summary>
+            {{ . }}
+        </details>
+        {{- end }}
+        {{- end }}
+
+        <div class="post-content">
+            {{ .Content }}
+        </div>
+
+        {{- with .Params.tags }}
+        <footer class="post-footer">
+            <span class="meta-label">Tags</span>
+            {{ range . }}<a class="post-tag" href="{{ printf "/tags/%s/" (urlize .) | relURL }}">{{ . }}</a>{{ end }}
+        </footer>
+        {{- end }}
+
+        {{- $older := .PrevInSection }}
+        {{- $newer := .NextInSection }}
+        {{- if or $older $newer }}
+        <nav class="post-nav">
+            {{ with $older }}
+            <a class="post-nav-item" href="{{ .RelPermalink }}">
+                <span class="post-nav-label">← 上一篇</span>
+                <span class="post-nav-title">{{ .Title }}</span>
+            </a>
+            {{ end }}
+            {{ with $newer }}
+            <a class="post-nav-item post-nav-item--right" href="{{ .RelPermalink }}">
+                <span class="post-nav-label">下一篇 →</span>
+                <span class="post-nav-title">{{ .Title }}</span>
+            </a>
+            {{ end }}
+        </nav>
+        {{- end }}
+    </article>
+
+    {{- if .TableOfContents }}
+    {{/* Highlight the section currently being read in the left-hand outline. */}}
+    <script>
+        (function () {
+            var links = Array.prototype.slice.call(document.querySelectorAll(".post-toc-side a"));
+            if (!links.length) return;
+            var pairs = links.map(function (a) {
+                var id = decodeURIComponent(a.getAttribute("href").slice(1));
+                return { link: a, target: document.getElementById(id) };
+            }).filter(function (p) { return p.target; });
+
+            function update() {
+                var line = window.scrollY + 150;
+                var current = null;
+                pairs.forEach(function (p) {
+                    if (p.target.offsetTop <= line) current = p;
+                });
+                pairs.forEach(function (p) {
+                    p.link.classList.toggle("is-active", p === current);
+                });
+            }
+
+            var ticking = false;
+            window.addEventListener("scroll", function () {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(function () {
+                    update();
+                    ticking = false;
+                });
+            }, { passive: true });
+            update();
+        })();
+    </script>
+    {{- end }}
+{{ end }}

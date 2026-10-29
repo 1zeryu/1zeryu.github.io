@@ -1,0 +1,27 @@
+[goldmark.renderer]
+unsafe = true
+
+[goldmark.extensions.passthrough]
+enable = true
+
+# LaTeX math support
+# https://gohugo.io/content-management/mathematics/
+[goldmark.extensions.passthrough.delimiters]
+block = [['\[', '\]'], ['$$', '$$']]
+inline = [['\(', '\)']]
+
+[tableOfContents]
+# Levels 4+ are usually too granular for a sidebar; h2/h3 keeps it readable.
+endLevel = 3
+ordered = true
+startLevel = 2
+
+# Code blocks: keep them plain, without line numbers
+[highlight]
+noClasses = false
+codeFences = true
+guessSyntax = true
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = false
+tabWidth = 4

@@ -1,0 +1,24 @@
+{{ define "main" }}
+    {{- $posts := where site.RegularPages "Section" "post" -}}
+    <header class="page-header">
+        <h1 class="page-title">{{ .Title }}</h1>
+        {{ with .Params.description }}<p class="page-desc">{{ . }}</p>{{ end }}
+        <p class="page-meta">{{ len $posts }} posts · <a href="{{ "index.xml" | relURL }}">RSS</a></p>
+    </header>
+
+    {{ range $posts.ByDate.Reverse.GroupByDate "2006" }}
+    <section class="home-section">
+        <h2 class="section-label">{{ .Key }}</h2>
+        <ul class="entry-list">
+            {{ range .Pages }}
+            <li>
+                <time class="entry-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01-02" }}</time>
+                <div class="entry-body">
+                    <a class="entry-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </div>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+{{ end }}

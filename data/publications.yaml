@@ -1,0 +1,55 @@
+- venue: "CVPR 2025"
+  title: "A Closer Look at Time Steps is Worthy of Triple Speed-Up for Diffusion Model Training"
+  image: "img/pubs/Speed_demo.png"
+  authors: "Kai Wang, Mingjia Shi, **Yukun Zhou**, et al."
+  description: "A plug-and-play, architecture-agnostic approach that achieves 3× acceleration across diffusion architectures, datasets, and tasks."
+  featured: true
+  links:
+    - name: "Project"
+      url: "https://bdemo.github.io/SpeeD/"
+    - name: "Code"
+      url: "https://github.com/NUS-HPC-AI-Lab/SpeeD"
+    - name: "Paper"
+      url: "https://openaccess.thecvf.com/content/CVPR2025/papers/Wang_A_Closer_Look_at_Time_Steps_is_Worthy_of_Triple_CVPR_2025_paper.pdf"
+
+- venue: "ECCV 2024"
+  title: "Dataset Growth"
+  image: "img/pubs/dataset_growth.png"
+  authors: "Ziheng Qin, Zhaopan Xu, **Yukun Zhou**, et al."
+  description: "Improves data quality and efficiency on both single-modal and multi-modal tasks with an efficient, scalable design."
+  featured: true
+  links:
+    - name: "Code"
+      url: "https://github.com/NUS-HPC-AI-Lab/InfoGrowth?tab=readme-ov-file"
+    - name: "Paper"
+      url: "https://arxiv.org/pdf/2405.18347"
+
+- venue: "Technical Report"
+  title: "GigaWorld-0: World Models as Data Engine to Empower Embodied AI"
+  image: "img/pubs/gigaworld-0.png"
+  authors: "GigaAI"
+  description: "A unified world model framework designed explicitly as a data engine for Vision-Language-Action learning. Responsible for training and evaluating the video foundation model, downstream fine-tuning, and inference acceleration."
+  featured: true
+  links:
+    - name: "Project"
+      url: "https://giga-world-0.github.io/"
+    - name: "Code"
+      url: "https://github.com/open-gigaai/giga-world-0"
+    - name: "Paper"
+      url: "https://arxiv.org/pdf/2511.19861"
+    - name: "Model"
+      url: "https://huggingface.co/open-gigaai"
+
+- venue: "Open-Source Project"
+  title: "Open-Sora: Democratizing Efficient Video Production for All"
+  image: "img/pubs/opensora_demo.png"
+  authors: "HPC-AI Tech"
+  description: "An open-source video generation model with full training, inference, data preparation code and model weights. Project participant as an intern at Luchen Technology."
+  featured: false
+  links:
+    - name: "Code"
+      url: "https://github.com/hpcaitech/Open-Sora"
+    - name: "Paper"
+      url: "https://arxiv.org/pdf/2412.20404"
+    - name: "Model"
+      url: "https://huggingface.co/collections/hpcai-tech/open-sora-66373960c8950692a4394e2d"

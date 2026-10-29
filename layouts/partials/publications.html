@@ -1,0 +1,32 @@
+{{- $items := .items -}}
+<ul class="pub-list">
+    {{ range $items }}
+    {{- $item := . }}
+    <li class="pub-item">
+        {{ with .image }}
+        {{- $src := resources.Get . }}
+        {{- with $src }}
+        {{- $thumb := .Process "resize 480x" }}
+        <div class="pub-thumb">
+            <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ $item.title }}" loading="lazy">
+        </div>
+        {{- end }}
+        {{- end }}
+        <div class="pub-body">
+            <div class="pub-venue">{{ .venue }}</div>
+            <div class="pub-title">{{ .title }}</div>
+            {{ with .authors }}
+            <div class="pub-authors">{{ . | markdownify }}</div>
+            {{ end }}
+            {{ with .description }}
+            <div class="pub-desc">{{ . }}</div>
+            {{ end }}
+            {{ with .links }}
+            <div class="pub-links">
+                {{ range . }}<a href="{{ .url }}">{{ .name }}</a>{{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </li>
+    {{ end }}
+</ul>

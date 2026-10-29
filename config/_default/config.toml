@@ -1,0 +1,43 @@
+# Change baseurl before deploy
+baseurl = "https://1zeryu.github.io/"
+languageCode = "zh-cn"
+title = "Yukun Zhou"
+
+# Site i18n
+defaultContentLanguage = "zh-cn"
+
+# Correct .Summary / .WordCount for CJK text
+hasCJKLanguage = true
+
+# No theme: layouts live in ./layouts
+
+# Only tags are used as a taxonomy
+[taxonomies]
+tag = "tags"
+
+# searchindex.json feeds the client-side search page
+[outputs]
+home = ["html", "rss", "search"]
+
+[outputFormats.search]
+mediaType = "application/json"
+baseName = "searchindex"
+isPlainText = true
+notAlternative = true
+
+[pagination]
+pagerSize = 10
+
+[params]
+description = "Research scientist working on world models, visual generation and embodied intelligence."
+author = "Yukun Zhou"
+favicon = "/favicon.png"
+# Show "N 分钟" reading time on post pages
+showReadingTime = true
+# Full content in RSS
+rssFullContent = true
+
+[params.umami]
+enabled = true
+src = ""
+websiteId = ""

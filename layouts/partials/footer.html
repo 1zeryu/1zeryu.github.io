@@ -1,0 +1,8 @@
+<footer class="site-footer">
+    <span class="copyright">© {{ now.Year }} {{ site.Params.author }}</span>
+    <nav class="footer-nav">
+        {{- range site.Menus.social }}
+        <a href="{{ if strings.HasPrefix .URL "http" }}{{ .URL }}{{ else }}{{ .URL | relURL }}{{ end }}"{{ if strings.HasPrefix .URL "http" }} rel="noopener"{{ end }}>{{ .Name }}</a>
+        {{- end }}
+    </nav>
+</footer>

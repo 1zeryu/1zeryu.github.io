@@ -1,0 +1,44 @@
+{{ define "main" }}
+    {{- $posts := where site.RegularPages "Section" "post" -}}
+    <article class="home">
+        <div class="home-hero">
+            {{- with resources.Get "img/avatar.png" }}
+            {{- $avatar := .Process "resize 192x192" }}
+            <img class="avatar" src="{{ $avatar.RelPermalink }}" width="96" height="96" alt="{{ site.Params.author }}">
+            {{- end }}
+            <div class="home-intro">
+                {{ .Content }}
+            </div>
+        </div>
+
+        <p class="home-links">
+            <a href="{{ "/about/" | relURL }}">About</a>
+            <span class="link-sep">/</span>
+            <a href="https://github.com/1zeryu">GitHub</a>
+            <span class="link-sep">/</span>
+            <a href="https://scholar.google.com/citations?user=c0WCD74AAAAJ&hl=zh-CN">Scholar</a>
+            <span class="link-sep">/</span>
+            <a href="mailto:ykzhou8981389@gmail.com">Email</a>
+        </p>
+
+        {{ with $posts }}
+        <section class="home-section">
+            <h2 class="section-label">
+                <a href="{{ "/writing/" | relURL }}">Writing</a>
+            </h2>
+            <ul class="entry-list">
+                {{ range first 5 (.ByDate.Reverse) }}
+                <li>
+                    <time class="entry-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01" }}</time>
+                    <div class="entry-body">
+                        <a class="entry-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        {{ with .Params.description }}<p class="entry-desc">{{ . }}</p>{{ end }}
+                    </div>
+                </li>
+                {{ end }}
+            </ul>
+            <p class="home-more"><a href="{{ "/writing/" | relURL }}">All {{ len $posts }} posts →</a></p>
+        </section>
+        {{ end }}
+    </article>
+{{ end }}

@@ -1,0 +1,9 @@
+{{- /* News list, shared by the About page. */ -}}
+<ul class="entry-list news-list">
+    {{ range site.Data.news }}
+    <li>
+        <span class="entry-date">{{ .date }}</span>
+        <span class="entry-body entry-text">{{ .text | markdownify }}</span>
+    </li>
+    {{ end }}
+</ul>

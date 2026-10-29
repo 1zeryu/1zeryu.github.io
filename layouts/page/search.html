@@ -1,0 +1,100 @@
+{{ define "main" }}
+    <header class="page-header">
+        <h1 class="page-title">{{ .Title }}</h1>
+        {{ with .Params.description }}<p class="page-desc">{{ . }}</p>{{ end }}
+    </header>
+
+    <div class="search">
+        <label class="visually-hidden" for="search-input">搜索文章</label>
+        <input id="search-input" class="search-input" type="search" placeholder="搜索标题与正文…" autocomplete="off" autofocus>
+        <p class="search-status" id="search-status"></p>
+        <ul class="entry-list search-results" id="search-results"></ul>
+    </div>
+
+    <script>
+        (function () {
+            var input = document.getElementById("search-input");
+            var statusEl = document.getElementById("search-status");
+            var listEl = document.getElementById("search-results");
+            var indexUrl = "{{ "searchindex.json" | relURL }}";
+            var posts = null;
+            var timer = null;
+
+            function load() {
+                if (posts) return Promise.resolve(posts);
+                return fetch(indexUrl)
+                    .then(function (r) { return r.json(); })
+                    .then(function (data) { posts = data; return data; })
+                    .catch(function () {
+                        statusEl.textContent = "搜索索引加载失败，请刷新重试。";
+                        return [];
+                    });
+            }
+
+            function snippet(text, terms) {
+                var lower = text.toLowerCase();
+                var at = -1;
+                for (var i = 0; i < terms.length && at < 0; i++) {
+                    at = lower.indexOf(terms[i]);
+                }
+                if (at < 0) return text.slice(0, 140);
+                var start = Math.max(0, at - 40);
+                return (start > 0 ? "…" : "") + text.slice(start, start + 160) + "…";
+            }
+
+            function render(results, terms) {
+                listEl.textContent = "";
+                results.slice(0, 20).forEach(function (post) {
+                    var li = document.createElement("li");
+
+                    var date = document.createElement("time");
+                    date.className = "entry-date";
+                    date.textContent = post.date;
+
+                    var body = document.createElement("div");
+                    body.className = "entry-body";
+
+                    var a = document.createElement("a");
+                    a.className = "entry-title";
+                    a.href = post.url;
+                    a.textContent = post.title;
+
+                    var p = document.createElement("p");
+                    p.className = "entry-desc";
+                    p.textContent = snippet(post.text || "", terms);
+
+                    body.appendChild(a);
+                    body.appendChild(p);
+                    li.appendChild(date);
+                    li.appendChild(body);
+                    listEl.appendChild(li);
+                });
+            }
+
+            function search() {
+                var q = input.value.trim().toLowerCase();
+                if (!q) {
+                    statusEl.textContent = "";
+                    listEl.textContent = "";
+                    return;
+                }
+                var terms = q.split(/\s+/);
+                load().then(function (data) {
+                    var hits = data.filter(function (post) {
+                        var haystack = (post.title + " " + (post.tags || []).join(" ") + " " + (post.text || "")).toLowerCase();
+                        return terms.every(function (t) { return haystack.indexOf(t) !== -1; });
+                    });
+                    statusEl.textContent = hits.length ? "找到 " + hits.length + " 篇" : "没有匹配的文章";
+                    render(hits, terms);
+                });
+            }
+
+            input.addEventListener("input", function () {
+                clearTimeout(timer);
+                timer = setTimeout(search, 120);
+            });
+
+            load();
+        })();
+    </script>
+{{ end }}

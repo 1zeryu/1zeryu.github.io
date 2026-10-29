@@ -1,0 +1,27 @@
+{{- $title := site.Title -}}
+{{- if not .IsHome -}}
+    {{- $title = printf "%s · %s" .Title site.Title -}}
+{{- end -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{- with site.Params.author }}
+<meta name="author" content="{{ . }}">
+{{- end }}
+<link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | relURL }}" title="{{ site.Title }}">
+{{- with site.Params.favicon }}
+<link rel="icon" href="{{ . | relURL }}">
+{{- end }}
+{{- $css := resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<link rel="stylesheet" href="{{ "css/chroma.css" | relURL }}">
+{{- if .Param "math" }}
+{{ partial "math.html" . }}
+{{- end }}
+{{- with site.Params.umami }}
+{{- if and .enabled .src .websiteId }}
+<script async defer data-website-id="{{ .websiteId }}" src="{{ .src }}"></script>
+{{- end }}
+{{- end }}
