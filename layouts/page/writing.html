@@ -1,5 +1,5 @@
 {{ define "main" }}
-    {{- $posts := where site.RegularPages "Section" "post" -}}
+    {{- $posts := where site.RegularPages "Type" "post" -}}
     <header class="page-header">
         <h1 class="page-title">{{ .Title }}</h1>
         {{ with .Params.description }}<p class="page-desc">{{ . }}</p>{{ end }}

@@ -18,6 +18,10 @@
         "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     --mono: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
     --width: 720px;
+    --toc-gap: clamp(56px, 6vw, 110px);
+    /* Minimum breathing room between the reading column and the window edge,
+       so the outline is never glued to the right border. */
+    --edge: clamp(24px, 6vw, 140px);
 }
 
 *,
@@ -142,16 +146,16 @@ body {
     text-align: left;
 }
 
-/* Posts use a wider measure: the article takes roughly 70% of the viewport
-   and the space for the right-hand outline is reserved in the padding. */
+/* Posts: the article and the right-hand outline are laid out as one pair on
+   wide screens, so the outline keeps a gap of 6% of the viewport from the
+   text rather than a fixed distance from the window edge. */
 .section-post .container {
-    max-width: 1480px;
-    padding-left: 40px;
-    padding-right: 340px;
+    max-width: none;
+    padding: 0 24px;
 }
 
 .section-post .post {
-    max-width: 1000px;
+    max-width: 940px;
     margin: 0 auto;
 }
 
@@ -446,12 +450,33 @@ body {
         display: none;
     }
 
-    .post-toc-side {
+    /* Article column plus a reserved column for the outline. The pair is
+       capped at 940 + gap + 270 and centred, but the page always keeps
+       --edge of margin on each side, so the outline is measured from the
+       text (--toc-gap) rather than pinned to the window border. */
+    .section-post .container {
+        padding: 0 var(--edge);
+    }
+
+    .section-post .post {
+        max-width: calc(940px + var(--toc-gap) + 270px);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 270px;
+        column-gap: var(--toc-gap);
+    }
+
+    .section-post .post > * {
+        grid-column: 1;
+    }
+
+    .section-post .post > .post-toc-side {
         display: block;
+        grid-column: 2;
         position: fixed;
         top: 96px;
-        right: 24px;
-        width: 300px;
+        right: max(var(--edge), calc(50vw - 605px - var(--toc-gap) / 2));
+        width: 270px;
         max-height: calc(100vh - 170px);
         overflow-y: auto;
         padding-left: 24px;

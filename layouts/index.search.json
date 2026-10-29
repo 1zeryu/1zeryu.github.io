@@ -1,4 +1,4 @@
-{{- $pages := where site.RegularPages "Section" "post" -}}
+{{- $pages := where site.RegularPages "Type" "post" -}}
 {{- $data := slice -}}
 {{- range $pages -}}
     {{- $data = $data | append (dict

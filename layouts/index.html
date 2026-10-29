@@ -1,5 +1,5 @@
 {{ define "main" }}
-    {{- $posts := where site.RegularPages "Section" "post" -}}
+    {{- $posts := where site.RegularPages "Type" "post" -}}
     <article class="home">
         <div class="home-hero">
             {{- with resources.Get "img/avatar.png" }}
