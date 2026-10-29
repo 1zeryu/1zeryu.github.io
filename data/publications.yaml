@@ -1,3 +1,19 @@
+- venue: "Engineering Project"
+  title: "Uranus: Building the Next-Generation Simulation Infrastructure for Embodied AI"
+  image: "img/pubs/uranus.png"
+  authors: "D-Robotics Large Model Team"
+  description: "A data-driven, action-conditioned autoregressive diffusion world model: given observations, joint states and camera calibration, it generates multi-view video as a learnable robot simulator, streaming at up to 24 FPS with 4-step denoising."
+  featured: true
+  links:
+    - name: "Project"
+      url: "https://d-robotics-ai-lab.github.io/large-model-team/blog/uranus/"
+    - name: "Paper"
+      url: "https://arxiv.org/abs/2609.24815"
+    - name: "Code"
+      url: "https://github.com/D-Robotics-AI-Lab/Uranus-OSS"
+    - name: "Model"
+      url: "https://huggingface.co/D-Robotics"
+
 - venue: "CVPR 2025"
   title: "A Closer Look at Time Steps is Worthy of Triple Speed-Up for Diffusion Model Training"
   image: "img/pubs/Speed_demo.png"
