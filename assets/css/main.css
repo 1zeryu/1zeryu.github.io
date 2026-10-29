@@ -117,6 +117,12 @@ body {
     padding: 0 24px;
 }
 
+/* Pages marked `wide: true` in front matter use the full viewport width. */
+.page-wide .container {
+    max-width: none;
+    padding: 0 48px;
+}
+
 /* Posts use a wider measure: the article takes roughly 70% of the viewport
    and the space for the right-hand outline is reserved in the padding. */
 .section-post .container {
@@ -812,7 +818,7 @@ body {
 
 .pub-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 30px 26px;
     margin: 1.3em 0 0;
     padding: 0;

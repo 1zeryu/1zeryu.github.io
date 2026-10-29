@@ -3,7 +3,7 @@
     <head>
         {{- partial "head.html" . -}}
     </head>
-    <body class="kind-{{ .Kind }}{{ with .Section }} section-{{ . }}{{ end }}">
+    <body class="kind-{{ .Kind }}{{ with .Section }} section-{{ . }}{{ end }}{{ if .Params.wide }} page-wide{{ end }}">
         {{- partial "header.html" . -}}
         <main class="container">
             {{- block "main" . }}{{- end }}
