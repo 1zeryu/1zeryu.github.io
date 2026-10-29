@@ -117,25 +117,29 @@ body {
     padding: 0 24px;
 }
 
-/* Pages marked `wide: true` in front matter: a centred column, everything
-   inside it centred as well. */
+/* Pages marked `wide: true` in front matter: a wider centred column. The page
+   title is centred, the text itself stays left-aligned, and the lists sit in
+   the middle of the column as blocks. */
 .page-wide .container {
-    max-width: 1080px;
+    max-width: 1200px;
     padding: 0 24px;
-}
-
-.page-wide .post-content {
-    text-align: center;
 }
 
 .page-wide .post-header {
     text-align: center;
 }
 
-.page-wide .post-meta,
-.page-wide .pub-links,
-.page-wide .entry-list li {
-    justify-content: center;
+.page-wide .post-content > h2,
+.page-wide .post-content > h3 {
+    text-align: center;
+}
+
+.page-wide .post-content > p,
+.page-wide .post-content > ul:not(.pub-list) {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
 
 /* Posts use a wider measure: the article takes roughly 70% of the viewport
@@ -498,14 +502,16 @@ body {
     }
 }
 
-/* Standalone pages (About, Search, …) never use the right-hand rail: their
-   outline stays as the collapsible block above the content. */
-.kind-page .post-toc-side {
+/* The About page keeps its outline as a collapsible block above the content;
+   every other page uses the right-hand rail like a post. */
+.page-wide .post-toc-side {
     display: none;
 }
 
-.kind-page .post-toc-inline {
-    display: block;
+@media (min-width: 1360px) {
+    .page-wide .post-toc-inline {
+        display: block;
+    }
 }
 
 .post-content {
@@ -831,11 +837,12 @@ body {
 
 /* ---------- Publications ---------- */
 
+/* Four papers per row, uniform cells, text left-aligned inside each card. */
 .pub-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-auto-rows: 1fr;
-    gap: 30px 26px;
+    gap: 26px 20px;
     margin: 1.3em 0 0;
     padding: 0;
     list-style: none;
@@ -858,8 +865,9 @@ body {
     display: block;
     width: 100%;
     height: 100%;
+    margin: 0;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
 }
 
 .pub-venue {
@@ -871,21 +879,23 @@ body {
 }
 
 .pub-body {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     min-width: 0;
 }
 
 .pub-title {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 1.55;
+    line-height: 1.5;
 }
 
 .pub-authors,
 .pub-desc {
     margin-top: 3px;
-    font-size: 14.5px;
-    line-height: 1.7;
+    font-size: 12.5px;
+    line-height: 1.6;
     color: var(--muted);
 }
 
@@ -896,10 +906,11 @@ body {
 .pub-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 6px;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 10px;
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 12.5px;
 }
 
 .pub-links a {
@@ -913,6 +924,12 @@ body {
 }
 
 /* ---------- Small screens ---------- */
+
+@media (max-width: 1100px) {
+    .pub-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
 
 @media (max-width: 640px) {
     body {
