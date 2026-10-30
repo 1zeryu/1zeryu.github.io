@@ -7,9 +7,9 @@ toc: false
 wide: true
 ---
 
-## News
+<!-- ## News -->
 
-{{< news >}}
+<!-- {{< news >}} -->
 
 
 ## Selected Work
@@ -19,4 +19,4 @@ wide: true
 
 ## Education
 
-- B.Eng., Xidian University, 2025
+<img src="/img/xidian.png" alt="Xidian University" class="edu-logo" width="96" height="96">

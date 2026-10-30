@@ -795,6 +795,15 @@ body {
     cursor: zoom-in;
 }
 
+/* The Education entry shows the university crest instead. It is centred
+   horizontally and is not clickable like the figures in a post. */
+.post-content .edu-logo {
+    width: 96px;
+    height: auto;
+    margin: 0.4em auto 0;
+    cursor: default;
+}
+
 /* ---------- Image lightbox ---------- */
 
 /* Clicking an inline image opens it at full size on a plain white sheet,
