@@ -3,7 +3,6 @@ title: "咖啡为什么会让你失眠——咖啡因作用机制与个体差异
 description: "咖啡因是怎么提神的？为什么有人喝一口就睁眼到天亮，有人灌两杯照样犯困？"
 slug: coffee-mechanism
 date: 2026-10-30 08:28:00+0800
-draft: true
 image: ""
 categories:
     - 生活
