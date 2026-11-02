@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 748" font-family="system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- ============ 上半部分：整机 ============ -->
+  <rect x="20" y="20" width="860" height="350" rx="12" fill="none" stroke="#334155" stroke-width="1.8"/>
+  <text x="40" y="47" font-size="14" font-weight="bold" fill="#0f172a">一台 8 卡 H100 服务器</text>
+  <text x="40" y="68" font-size="10" fill="#64748b">8 张加速卡安装在同一块 HGX 基板上，共享 2 颗 CPU 与主机内存</text>
+
+  <!-- 主机侧 -->
+  <rect x="40" y="90" width="130" height="220" rx="8" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="105" y="110" font-size="10" fill="#64748b" text-anchor="middle">主机侧</text>
+  <rect x="52" y="118" width="106" height="62" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.3"/>
+  <text x="105" y="143" font-size="11.5" font-weight="bold" fill="#1e293b" text-anchor="middle">CPU ×2</text>
+  <text x="105" y="162" font-size="9" fill="#64748b" text-anchor="middle">每颗 56 核，负责调度</text>
+  <rect x="52" y="196" width="106" height="62" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.3"/>
+  <text x="105" y="220" font-size="11.5" font-weight="bold" fill="#1e293b" text-anchor="middle">主机内存</text>
+  <text x="105" y="239" font-size="10" fill="#64748b" text-anchor="middle">2TB DDR5</text>
+  <text x="105" y="278" font-size="9" fill="#64748b" text-anchor="middle">数据集 / 模型权重</text>
+  <text x="105" y="294" font-size="9" fill="#64748b" text-anchor="middle">先加载到这里</text>
+  <line x1="105" y1="182" x2="105" y2="194" stroke="#475569" stroke-width="1.5" marker-start="url(#arr)" marker-end="url(#arr)"/>
+
+  <!-- HGX 基板 -->
+  <rect x="210" y="90" width="450" height="250" rx="8" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="228" y="114" font-size="11.5" font-weight="bold" fill="#6d28d9">HGX 基板（8 张 H100 SXM）</text>
+
+  <!-- 8 张卡 -->
+  <g fill="#dcfce7" stroke="#16a34a" stroke-width="1.3">
+    <rect x="236" y="126" width="92" height="56" rx="5"/>
+    <rect x="338" y="126" width="92" height="56" rx="5"/>
+    <rect x="440" y="126" width="92" height="56" rx="5"/>
+    <rect x="542" y="126" width="92" height="56" rx="5"/>
+    <rect x="236" y="196" width="92" height="56" rx="5"/>
+    <rect x="338" y="196" width="92" height="56" rx="5"/>
+    <rect x="440" y="196" width="92" height="56" rx="5"/>
+    <rect x="542" y="196" width="92" height="56" rx="5"/>
+  </g>
+  <g text-anchor="middle" fill="#15803d">
+    <text x="282" y="150" font-size="11.5" font-weight="bold">H100 #0</text><text x="282" y="168" font-size="9">80GB HBM3</text>
+    <text x="384" y="150" font-size="11.5" font-weight="bold">H100 #1</text><text x="384" y="168" font-size="9">80GB HBM3</text>
+    <text x="486" y="150" font-size="11.5" font-weight="bold">H100 #2</text><text x="486" y="168" font-size="9">80GB HBM3</text>
+    <text x="588" y="150" font-size="11.5" font-weight="bold">H100 #3</text><text x="588" y="168" font-size="9">80GB HBM3</text>
+    <text x="282" y="220" font-size="11.5" font-weight="bold">H100 #4</text><text x="282" y="238" font-size="9">80GB HBM3</text>
+    <text x="384" y="220" font-size="11.5" font-weight="bold">H100 #5</text><text x="384" y="238" font-size="9">80GB HBM3</text>
+    <text x="486" y="220" font-size="11.5" font-weight="bold">H100 #6</text><text x="486" y="238" font-size="9">80GB HBM3</text>
+    <text x="588" y="220" font-size="11.5" font-weight="bold">H100 #7</text><text x="588" y="238" font-size="9">80GB HBM3</text>
+  </g>
+
+  <!-- NVSwitch -->
+  <rect x="236" y="276" width="398" height="46" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="435" y="297" font-size="11" font-weight="bold" fill="#6d28d9" text-anchor="middle">NVSwitch ×4</text>
+  <text x="435" y="313" font-size="9.5" fill="#7c3aed" text-anchor="middle">任意两张卡直连，每卡 900GB/s（双向）</text>
+
+  <!-- 右侧部件 -->
+  <rect x="700" y="90" width="160" height="64" rx="6" fill="#ecfeff" stroke="#0891b2" stroke-width="1.3"/>
+  <text x="780" y="112" font-size="11" font-weight="bold" fill="#0e7490" text-anchor="middle">计算网卡 ×8</text>
+  <text x="780" y="130" font-size="9" fill="#155e75" text-anchor="middle">400Gb/s，每卡一张</text>
+  <text x="780" y="146" font-size="9" fill="#155e75" text-anchor="middle">用于跨机通信</text>
+
+  <rect x="700" y="170" width="160" height="66" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.3"/>
+  <text x="780" y="192" font-size="11" font-weight="bold" fill="#1e293b" text-anchor="middle">NVMe SSD</text>
+  <text x="780" y="209" font-size="9" fill="#64748b" text-anchor="middle">高速固态硬盘，约 30TB</text>
+  <text x="780" y="225" font-size="9" fill="#64748b" text-anchor="middle">存放数据集与模型文件</text>
+
+  <rect x="700" y="252" width="160" height="58" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.3"/>
+  <text x="780" y="275" font-size="11" font-weight="bold" fill="#1e293b" text-anchor="middle">电源与散热</text>
+  <text x="780" y="293" font-size="9" fill="#64748b" text-anchor="middle">整机约 10kW</text>
+
+  <!-- ③ 主机 ↔ 基板（PCIe） -->
+  <line x1="172" y1="200" x2="208" y2="200" stroke="#dc2626" stroke-width="2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <circle cx="190" cy="200" r="10" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="190" y="204" font-size="10" font-weight="bold" fill="#dc2626" text-anchor="middle">3</text>
+
+  <!-- ⑤ 基板 ↔ 网卡 -->
+  <line x1="662" y1="122" x2="698" y2="122" stroke="#0891b2" stroke-width="2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <circle cx="680" cy="122" r="10" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="680" y="126" font-size="10" font-weight="bold" fill="#0891b2" text-anchor="middle">5</text>
+
+  <!-- ============ 下半部分：单卡 ============ -->
+  <rect x="20" y="388" width="860" height="300" rx="12" fill="none" stroke="#334155" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="40" y="414" font-size="14" font-weight="bold" fill="#0f172a">单张 H100 加速卡（SXM5）</text>
+  <text x="40" y="434" font-size="10" fill="#64748b">上图中每一张卡所提供的部件</text>
+
+  <!-- HBM ×5 -->
+  <g fill="#dcfce7" stroke="#16a34a" stroke-width="1.3">
+    <rect x="60" y="446" width="82" height="36" rx="5"/>
+    <rect x="60" y="488" width="82" height="36" rx="5"/>
+    <rect x="60" y="530" width="82" height="36" rx="5"/>
+    <rect x="60" y="572" width="82" height="36" rx="5"/>
+    <rect x="60" y="614" width="82" height="36" rx="5"/>
+  </g>
+  <g text-anchor="middle" fill="#15803d" font-size="10.5" font-weight="bold">
+    <text x="101" y="469">HBM 显存</text>
+    <text x="101" y="511">HBM 显存</text>
+    <text x="101" y="553">HBM 显存</text>
+    <text x="101" y="595">HBM 显存</text>
+    <text x="101" y="637">HBM 显存</text>
+  </g>
+  <text x="52" y="672" font-size="9.5" fill="#15803d">共 5 颗，合计 80GB，带宽 3.35TB/s</text>
+
+  <!-- GPU Die -->
+  <rect x="330" y="440" width="230" height="204" rx="7" fill="#e8f0fe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="445" y="461" font-size="11.5" font-weight="bold" fill="#1e40af" text-anchor="middle">GPU Die</text>
+
+  <!-- 片上缓存（位于显存与核心之间） -->
+  <rect x="338" y="474" width="50" height="156" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.3"/>
+  <text x="363" y="544" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">SRAM</text>
+  <text x="363" y="558" font-size="9" fill="#92400e" text-anchor="middle">L2</text>
+
+  <!-- 计算核心 3×4 -->
+  <g fill="#93c5fd" stroke="#2563eb" stroke-width="1">
+    <rect x="436" y="482" width="32" height="32" rx="4"/><rect x="476" y="482" width="32" height="32" rx="4"/><rect x="516" y="482" width="32" height="32" rx="4"/>
+    <rect x="436" y="522" width="32" height="32" rx="4"/><rect x="476" y="522" width="32" height="32" rx="4"/><rect x="516" y="522" width="32" height="32" rx="4"/>
+    <rect x="436" y="562" width="32" height="32" rx="4"/><rect x="476" y="562" width="32" height="32" rx="4"/><rect x="516" y="562" width="32" height="32" rx="4"/>
+    <rect x="436" y="602" width="32" height="32" rx="4"/><rect x="476" y="602" width="32" height="32" rx="4"/><rect x="516" y="602" width="32" height="32" rx="4"/>
+  </g>
+
+  <!-- ① HBM ↔ SRAM -->
+  <g stroke="#16a34a" stroke-width="1.8">
+    <line x1="142" y1="464" x2="336" y2="464" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="142" y1="506" x2="336" y2="506" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="142" y1="548" x2="336" y2="548" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="142" y1="590" x2="336" y2="590" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="142" y1="632" x2="336" y2="632" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  </g>
+  <circle cx="168" cy="464" r="9" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="168" y="468" font-size="9.5" font-weight="bold" fill="#16a34a" text-anchor="middle">1</text>
+
+  <!-- ② SRAM ↔ 计算核心 -->
+  <line x1="390" y1="552" x2="434" y2="552" stroke="#d97706" stroke-width="2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <circle cx="412" cy="552" r="9" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
+  <text x="412" y="556" font-size="9.5" font-weight="bold" fill="#d97706" text-anchor="middle">2</text>
+
+  <!-- PCIe -->
+  <rect x="622" y="448" width="196" height="46" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.3"/>
+  <text x="720" y="470" font-size="11" font-weight="bold" fill="#b91c1c" text-anchor="middle">PCIe 5.0 ×16</text>
+  <text x="720" y="486" font-size="9" fill="#b91c1c" text-anchor="middle">约 64GB/s，连接 CPU</text>
+
+  <!-- NVLink -->
+  <rect x="622" y="526" width="196" height="46" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.3"/>
+  <text x="720" y="548" font-size="11" font-weight="bold" fill="#6d28d9" text-anchor="middle">NVLink</text>
+  <text x="720" y="564" font-size="9" fill="#7c3aed" text-anchor="middle">900GB/s，连接 NVSwitch</text>
+
+  <text x="622" y="610" font-size="10" fill="#475569">供电与散热：约 700W（SXM5 封装）</text>
+  <text x="622" y="628" font-size="9" fill="#64748b">由机箱统一散热，卡自身不含风扇</text>
+
+  <!-- ③ Die ↔ PCIe -->
+  <line x1="562" y1="471" x2="620" y2="471" stroke="#dc2626" stroke-width="2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <circle cx="591" cy="471" r="9" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="591" y="475" font-size="9.5" font-weight="bold" fill="#dc2626" text-anchor="middle">3</text>
+
+  <!-- ④ Die ↔ NVLink -->
+  <line x1="562" y1="549" x2="620" y2="549" stroke="#7c3aed" stroke-width="2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <circle cx="591" cy="549" r="9" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="591" y="553" font-size="9.5" font-weight="bold" fill="#7c3aed" text-anchor="middle">4</text>
+
+  <!-- 图例 -->
+  <text x="30" y="712" font-size="9.5" fill="#475569">① 显存 ↔ 片上缓存（显存带宽 3.35TB/s）　② 片上缓存 ↔ 计算核心（速度约为显存的 10 倍）　④ 卡间互联（NVLink 900GB/s）</text>
+  <text x="30" y="730" font-size="9.5" fill="#475569">③ 主机 ↔ 显存（PCIe 5.0，每卡 64GB/s）　⑤ 跨机通信（每卡一张 400Gb/s 网卡）</text>
+</svg>
