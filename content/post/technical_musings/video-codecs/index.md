@@ -257,7 +257,7 @@ loader = DataLoader(
 )
 ```
 
-判断有没有效果很直接：GPU 利用率上不去、`nvidia-smi` 里显存占着但算力是空的，就是预取不够。[^pytorch-data]
+判断有没有效果可以看 `nvidia-smi`：显存占着、GPU 利用率却上不去，说明数据供得比算得慢。这时再分辨瓶颈在哪：只有已经走 NVDEC 硬解，`nvidia-smi dmon` 的 `dec` 列才有意义——`dec` 忙说明解码打满，`dec` 也闲着说明数据还没送到 GPU。如果用 CPU 软解（`libavcodec`，以及 VC-1、MPEG-2 这类在数据中心卡上本来就没有硬解单元的编码），`dec` 会一直是 0，拿它判断就会误诊。[^pytorch-data]
 
 - **解码和预处理都放到 GPU**：用 DALI[^dali] 这类库，先把解码从 CPU 卸载到 GPU 上的 NVDEC 单元，再把缩放、归一化也留在显存里做，省掉“解码到内存 → 再拷到显存”的往返。前提是这张卡有对应编码的硬解单元，没有就只能退回 CPU。
 
