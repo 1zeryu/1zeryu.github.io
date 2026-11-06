@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="-apple-system, PingFang SC, Noto Sans CJK SC, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#767676"/>
+    </marker>
+    <marker id="ahr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#c01c28"/>
+    </marker>
+  </defs>
+
+  <!-- 标注：随机抽帧的解码链 -->
+  <text x="400" y="34" text-anchor="middle" font-size="13.5" fill="#c01c28">随机抽到 P6：先解出 P3，再解出 I0 —— 依赖链回到 I 帧才断</text>
+
+  <!-- P 帧依赖链（红色虚线，上方） -->
+  <path d="M 547 106 C 498 66, 356 66, 313 106" fill="none" stroke="#c01c28" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#ahr)"/>
+  <path d="M 307 106 C 258 66, 116 66, 73 106" fill="none" stroke="#c01c28" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#ahr)"/>
+
+  <!-- B 帧参考关系（灰色实线，下方），箭头指向被参考的帧 -->
+  <path d="M 137 162 C 118 184, 96 184, 79 162" fill="none" stroke="#767676" stroke-width="1.6" marker-end="url(#ah)"/>
+  <path d="M 157 162 C 190 192, 262 192, 291 162" fill="none" stroke="#767676" stroke-width="1.6" marker-end="url(#ah)"/>
+  <path d="M 217 162 C 170 206, 100 210, 81 164" fill="none" stroke="#767676" stroke-width="1.6" marker-end="url(#ah)"/>
+  <path d="M 237 162 C 258 186, 276 186, 293 162" fill="none" stroke="#767676" stroke-width="1.6" marker-end="url(#ah)"/>
+  <path d="M 377 162 C 352 184, 338 184, 327 162" fill="none" stroke="#767676" stroke-width="1.6" marker-end="url(#ah)"/>
+  <path d="M 397 162 C 430 196, 505 196, 535 162" fill="none" stroke="#767676" stroke-width="1.6" marker-end="url(#ah)"/>
+  <path d="M 457 162 C 400 208, 348 210, 317 164" fill="none" stroke="#767676" stroke-width="1.6" marker-end="url(#ah)"/>
+  <path d="M 477 162 C 500 184, 512 184, 523 162" fill="none" stroke="#767676" stroke-width="1.6" marker-end="url(#ah)"/>
+
+  <!-- 帧 -->
+  <rect x="40" y="110" width="54" height="48" rx="6" fill="#1a5fb4"/>
+  <text x="67" y="141" text-anchor="middle" font-size="17" font-weight="600" fill="#ffffff">I₀</text>
+
+  <rect x="120" y="110" width="54" height="48" rx="6" fill="#ffffff" stroke="#9a9996" stroke-width="1.5"/>
+  <text x="147" y="141" text-anchor="middle" font-size="17" font-weight="600" fill="#5e5c64">B₁</text>
+
+  <rect x="200" y="110" width="54" height="48" rx="6" fill="#ffffff" stroke="#9a9996" stroke-width="1.5"/>
+  <text x="227" y="141" text-anchor="middle" font-size="17" font-weight="600" fill="#5e5c64">B₂</text>
+
+  <rect x="280" y="110" width="54" height="48" rx="6" fill="#dbe8f8" stroke="#1a5fb4" stroke-width="1.5"/>
+  <text x="307" y="141" text-anchor="middle" font-size="17" font-weight="600" fill="#1a5fb4">P₃</text>
+
+  <rect x="360" y="110" width="54" height="48" rx="6" fill="#ffffff" stroke="#9a9996" stroke-width="1.5"/>
+  <text x="387" y="141" text-anchor="middle" font-size="17" font-weight="600" fill="#5e5c64">B₄</text>
+
+  <rect x="440" y="110" width="54" height="48" rx="6" fill="#ffffff" stroke="#9a9996" stroke-width="1.5"/>
+  <text x="467" y="141" text-anchor="middle" font-size="17" font-weight="600" fill="#5e5c64">B₅</text>
+
+  <rect x="520" y="110" width="54" height="48" rx="6" fill="#dbe8f8" stroke="#1a5fb4" stroke-width="1.5"/>
+  <text x="547" y="141" text-anchor="middle" font-size="17" font-weight="600" fill="#1a5fb4">P₆</text>
+
+  <rect x="600" y="110" width="54" height="48" rx="6" fill="#1a5fb4"/>
+  <text x="627" y="141" text-anchor="middle" font-size="17" font-weight="600" fill="#ffffff">I₇</text>
+
+  <!-- GOP 范围 -->
+  <path d="M 40 218 L 40 228 L 574 228 L 574 218" fill="none" stroke="#767676" stroke-width="1.2"/>
+  <text x="307" y="246" text-anchor="middle" font-size="12.5" fill="#3d3846">一个 GOP：从 I 帧到下一个 I 帧之前</text>
+  <path d="M 600 218 L 600 228 L 654 228 L 654 218" fill="none" stroke="#767676" stroke-width="1.2"/>
+  <text x="627" y="246" text-anchor="middle" font-size="12" fill="#767676">下一个 GOP</text>
+
+  <!-- 图例 -->
+  <rect x="40" y="262" width="20" height="14" rx="3" fill="#1a5fb4"/>
+  <text x="66" y="273" font-size="12.5" fill="#3d3846">I 帧：完整画面，可独立解码</text>
+  <rect x="320" y="262" width="20" height="14" rx="3" fill="#dbe8f8" stroke="#1a5fb4" stroke-width="1.2"/>
+  <text x="346" y="273" font-size="12.5" fill="#3d3846">P 帧：只存相对参考帧的变化</text>
+  <rect x="560" y="262" width="20" height="14" rx="3" fill="#ffffff" stroke="#9a9996" stroke-width="1.2"/>
+  <text x="586" y="273" font-size="12.5" fill="#3d3846">B 帧：参考前后两帧</text>
+</svg>

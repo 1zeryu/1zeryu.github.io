@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" role="img" aria-label="率失真曲线">
+  <rect width="900" height="520" fill="#ffffff"/>
+  <g font-family="'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif" fill="#334155">
+
+    <!-- 网格 -->
+    <g stroke="#e2e8f0" stroke-width="1">
+      <line x1="90" y1="60" x2="840" y2="60"/>
+      <line x1="90" y1="155" x2="840" y2="155"/>
+      <line x1="90" y1="250" x2="840" y2="250"/>
+      <line x1="90" y1="345" x2="840" y2="345"/>
+      <line x1="90" y1="440" x2="840" y2="440"/>
+      <line x1="240" y1="60" x2="240" y2="440"/>
+      <line x1="390" y1="60" x2="390" y2="440"/>
+      <line x1="540" y1="60" x2="540" y2="440"/>
+      <line x1="690" y1="60" x2="690" y2="440"/>
+      <line x1="840" y1="60" x2="840" y2="440"/>
+    </g>
+
+    <!-- 坐标轴 -->
+    <g stroke="#334155" stroke-width="1.5">
+      <line x1="90" y1="60" x2="90" y2="440"/>
+      <line x1="90" y1="440" x2="840" y2="440"/>
+    </g>
+
+    <!-- 坐标轴刻度 -->
+    <g font-size="13" fill="#64748b">
+      <text x="90" y="460" text-anchor="middle">0</text>
+      <text x="240" y="460" text-anchor="middle">2</text>
+      <text x="390" y="460" text-anchor="middle">4</text>
+      <text x="540" y="460" text-anchor="middle">6</text>
+      <text x="690" y="460" text-anchor="middle">8</text>
+      <text x="840" y="460" text-anchor="middle">10</text>
+
+      <text x="78" y="445" text-anchor="end">0</text>
+      <text x="78" y="350" text-anchor="end">25</text>
+      <text x="78" y="255" text-anchor="end">50</text>
+      <text x="78" y="160" text-anchor="end">75</text>
+      <text x="78" y="65" text-anchor="end">100</text>
+    </g>
+
+    <!-- 轴标题 -->
+    <text x="465" y="494" text-anchor="middle" font-size="15">码率 R（Mbps）→ 往右文件更大</text>
+    <text x="30" y="250" text-anchor="middle" font-size="15" transform="rotate(-90 30 250)">失真 D ↑ 越往上画质越差</text>
+
+    <!-- A 点的辅助线 -->
+    <g stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="4 4">
+      <line x1="202.5" y1="168.7" x2="202.5" y2="440"/>
+      <line x1="90" y1="168.7" x2="202.5" y2="168.7"/>
+    </g>
+    <g font-size="12" fill="#94a3b8">
+      <text x="202.5" y="476" text-anchor="middle">R = 1.5</text>
+      <text x="84" y="173" text-anchor="end">D ≈ 71</text>
+    </g>
+
+    <!-- 率失真曲线：同一个编码器改变 CRF -->
+    <polyline points="127.5,73.7 165,125.7 202.5,168.7 240,204.4 277.5,233.7 315,257.6 352.5,277.7 390,294.1 465,318.8 540,335.5 615,347.3 690,354.9 765,360.2 802.5,362.5"
+              fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+
+    <!-- 更强编码器的曲线（同码率下失真更低） -->
+    <polyline points="127.5,168.3 202.5,235.6 277.5,281.5 352.5,312.7 465,343.1 615,362.1 802.5,370.5"
+              fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="8 7" stroke-linecap="round"/>
+
+    <!-- 曲线上的三个点 -->
+    <g stroke="#ffffff" stroke-width="2">
+      <circle cx="202.5" cy="168.7" r="6.5" fill="#2563eb"/>
+      <circle cx="352.5" cy="277.7" r="6.5" fill="#2563eb"/>
+      <circle cx="615" cy="347.3" r="6.5" fill="#2563eb"/>
+    </g>
+
+    <g font-size="14">
+      <text x="214" y="160">A 激进压缩（CRF 大）</text>
+      <text x="364" y="272">B 折中</text>
+      <text x="627" y="342">C 高画质（CRF 小）</text>
+    </g>
+
+    <!-- 注释 -->
+    <g font-size="13" fill="#64748b">
+      <text x="240" y="105">同一条曲线：同一编码器改变 CRF 得到的所有可选点</text>
+      <text x="100" y="425">越靠左下：同画质下码率更低</text>
+      <text x="640" y="400">虚线：更强的编码器</text>
+    </g>
+
+  </g>
+</svg>

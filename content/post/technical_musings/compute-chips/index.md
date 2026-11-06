@@ -9,6 +9,7 @@ categories:
     - 技术杂谈
 tags:
     - 算力
+    - 芯片
 authors:
   - "Yukun Zhou"
 type: post
