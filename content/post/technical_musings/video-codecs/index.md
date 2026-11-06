@@ -233,17 +233,6 @@ reader.seek(index[i]["offset"])
 frames = decode_until(reader, 47.2)                     # 只解这一小段
 ```
 
-- **硬件解码**：解码动作交给 GPU 上的 NVDEC 单元，CPU 空出来做预处理。
-
-```python
-# 伪代码：开启硬件解码，帧直接落在显存里
-container = av.open(path, hwaccel="cuda")
-for frame in container.decode(video=0):
-    x = frame.to_tensor()      # 不再经过「显存 → 内存 → 显存」的往返
-```
-
-不同库的参数名不一样（PyAV、TorchCodec、decord 各有写法），但思路一致：**先确认这个编码在你这张卡上有没有硬解单元**，没有就退回 CPU。
-
 - **解码缓存**：同一个样本在一个 epoch 里可能被抽到多次，第一次解完就留着。
 
 ```python
@@ -270,10 +259,10 @@ loader = DataLoader(
 
 判断有没有效果很直接：GPU 利用率上不去、`nvidia-smi` 里显存占着但算力是空的，就是预取不够。[^pytorch-data]
 
-- **解码与预处理合到 GPU**：用 DALI[^dali] 或 TorchCodec 把解码、缩放、归一化都放在 GPU 上，省掉“解码到内存 → 再拷到显存”的往返。
+- **解码和预处理都放到 GPU**：用 DALI[^dali] 这类库，先把解码从 CPU 卸载到 GPU 上的 NVDEC 单元，再把缩放、归一化也留在显存里做，省掉“解码到内存 → 再拷到显存”的往返。前提是这张卡有对应编码的硬解单元，没有就只能退回 CPU。
 
 ```python
-# 伪代码：解码、缩放、归一化都在 GPU 上完成，数据不落回内存
+# 伪代码：解码走 NVDEC，缩放和归一化也在显存里完成，数据不落回内存
 @pipeline_def(batch_size=64, device_id=0, num_threads=4)
 def video_pipeline(filenames):
     frames = fn.readers.video(device="mixed", filenames=filenames,
@@ -283,7 +272,7 @@ def video_pipeline(filenames):
     return frames
 ```
 
-对比常见的 CPU 写法 `decode → numpy → torch.tensor → .cuda()`：中间要过一次内存、一次 PCIe。合到 GPU 之后，只有最后那块 tensor 在显存里原地生成。TorchCodec 的 `VideoDecoder(..., device="cuda")` 是同一思路的另一种实现。
+对比常见的 CPU 写法 `decode → numpy → torch.tensor → .cuda()`：中间要过一次内存、一次 PCIe；只开硬解而不改预处理，解码出来的帧仍然要拷回内存再处理。合到 GPU 之后，只有最后那块 tensor 在显存里原地生成。TorchCodec 的 `VideoDecoder(..., device="cuda")` 是同一思路的另一种实现。
 
 
 
