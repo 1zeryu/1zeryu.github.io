@@ -902,6 +902,11 @@ body {
     text-decoration: none;
 }
 
+/* Two footnote markers written back to back would otherwise read as "345". */
+.post-content sup + sup::before {
+    content: ",";
+}
+
 .post-content .katex-display {
     margin: 1.6em 0;
     overflow-x: auto;
