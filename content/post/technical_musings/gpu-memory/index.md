@@ -374,7 +374,7 @@ except torch.cuda.OutOfMemoryError:
     raise
 ```
 
-把生成的 `oom_snapshot.pickle` 拖到 [pytorch.org/memory_viz](https://pytorch.org/memory_viz)，会看到两个视图。**Active Memory Timeline** 横轴是时间、纵轴是显存地址空间，每块矩形是一次分配，宽度是存活时长、高度是块大小（对数缩放），鼠标悬停显示大小和调用栈，还能按参数、梯度、激活等类别着色；**Allocator State History** 画的是分配器内部 segment 和 block 的已分配、空闲状态，用来判断碎片。常见的结论是“某个中间 tensor 没被释放”或“attention 的临时矩阵比预期大得多”。官方博客里有完整截图和逐步操作[^mem-blog],[^mem-blog-2]。
+把生成的 `oom_snapshot.pickle` 拖到 [pytorch.org/memory_viz](https://pytorch.org/memory_viz)，会看到两个视图。**Active Memory Timeline** 横轴是时间、纵轴是显存地址空间，每块矩形是一次分配，宽度是存活时长、高度是块大小（对数缩放），鼠标悬停显示大小和调用栈，还能按参数、梯度、激活等类别着色；**Allocator State History** 画的是分配器内部 segment 和 block 的已分配、空闲状态，用来判断碎片。常见的结论是“某个中间 tensor 没被释放”或“attention 的临时矩阵比预期大得多”。官方博客里有完整截图和逐步操作[^mem-blog][^mem-blog-2]。
 
 ## 收尾
 
