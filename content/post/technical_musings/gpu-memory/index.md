@@ -229,7 +229,7 @@ $$
 
 显存装不下、但主机内存或硬盘还有余量时，把暂时不用的数据搬到显存外面，需要时再搬回来。数据总量不变，只改变存放位置，本质是用带宽换容量。
 
-- **CPU offload**：把优化器状态、参数或激活放到主机内存，计算需要时经 PCIe 搬回，ZeRO-Offload 是典型实现。
+- **CPU offload**：把优化器状态、参数或激活放到主机内存，计算需要时经 PCIe 搬回，ZeRO-Offload 是典型实现[^zero-offload]。
 - **NVMe offload**：把数据放到 SSD，容量更大、速度更慢，一般只在显存和内存都不够时使用。
 
 ### 并行切分
@@ -407,6 +407,7 @@ except torch.cuda.OutOfMemoryError:
 [^checkpoint]: PyTorch. torch.utils.checkpoint: 激活重算. https://pytorch.org/docs/stable/checkpoint.html
 [^vllm]: Kwon W, Li Z, Zhuang S, et al. Efficient Memory Management for Large Language Model Serving with PagedAttention. arXiv:2309.06180, 2023. https://arxiv.org/abs/2309.06180
 [^zero]: Rajbhandari S, Rasley J, Ruwase O, et al. ZeRO: Memory Optimizations Toward Training Trillion Parameter Models. arXiv:1910.02054, 2019. https://arxiv.org/abs/1910.02054
+[^zero-offload]: Rajbhandari S, Aminabadi R Y, Rasley J, et al. ZeRO-Offload: Democratizing Billion-Scale Model Training. arXiv:2101.01321, 2021. https://arxiv.org/abs/2101.01321
 [^torch-mem]: PyTorch. torch.cuda memory management. https://pytorch.org/docs/stable/torch_cuda_memory.html
 [^memviz]: PyTorch. Memory visualization tool. https://pytorch.org/memory_viz
 [^mem-blog]: PyTorch. Understanding GPU Memory 1: Visualizing All Allocations over Time. https://pytorch.org/blog/understanding-gpu-memory-1/
