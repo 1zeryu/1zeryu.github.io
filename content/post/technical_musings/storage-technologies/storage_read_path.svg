@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="960" height="620" fill="#ffffff"/>
+
+  <defs>
+    <marker id="arw" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <text x="30" y="38" font-size="20" font-weight="bold" fill="#0f172a">为什么同样读一次，延迟差三个数量级</text>
+  <text x="30" y="64" font-size="11" fill="#64748b">查得越多、越要跨网络，等的时间就越长</text>
+
+  <!-- ================= 块存储 ================= -->
+  <rect x="24" y="88" width="912" height="128" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+  <text x="48" y="138" font-size="15" font-weight="bold" fill="#15803d">块存储</text>
+  <text x="48" y="158" font-size="10.5" fill="#94a3b8">只有位置，没有查找</text>
+
+  <g font-size="11" fill="#334155" text-anchor="middle">
+    <rect x="246" y="124" width="92" height="48" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+    <text x="292" y="145">给出块号</text>
+    <text x="292" y="161" font-size="8.5" fill="#64748b">第 N 块</text>
+
+    <rect x="368" y="124" width="92" height="48" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+    <text x="414" y="145">直接寻址</text>
+    <text x="414" y="161" font-size="8.5" fill="#64748b">闪存 / 盘片</text>
+
+    <rect x="490" y="124" width="92" height="48" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+    <text x="536" y="145">返回字节</text>
+    <text x="536" y="161" font-size="8.5" fill="#64748b">无中间层</text>
+  </g>
+  <line x1="340" y1="148" x2="364" y2="148" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arw)"/>
+  <line x1="462" y1="148" x2="486" y2="148" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arw)"/>
+
+  <text x="246" y="196" font-size="9.5" fill="#15803d">不做任何查找：偏移量直接换算成块地址</text>
+
+  <rect x="780" y="136" width="30" height="9" rx="4.5" fill="#22c55e"/>
+  <text x="780" y="166" font-size="11" font-weight="bold" fill="#15803d">≈ 100 μs</text>
+  <text x="780" y="184" font-size="9" fill="#94a3b8">不经过网络</text>
+
+  <!-- ================= 文件存储 ================= -->
+  <rect x="24" y="238" width="912" height="128" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+  <text x="48" y="288" font-size="15" font-weight="bold" fill="#b45309">文件存储</text>
+  <text x="48" y="308" font-size="10.5" fill="#94a3b8">路径要一层层查</text>
+
+  <g font-size="11" fill="#334155" text-anchor="middle">
+    <rect x="246" y="274" width="84" height="48" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.2"/>
+    <text x="288" y="295">路径</text>
+    <text x="288" y="311" font-size="8" fill="#64748b">/data/e1/v.mp4</text>
+
+    <rect x="351" y="274" width="84" height="48" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.2"/>
+    <text x="393" y="295">查目录</text>
+    <text x="393" y="311" font-size="8.5" fill="#64748b">逐级向下</text>
+
+    <rect x="456" y="274" width="84" height="48" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.2"/>
+    <text x="498" y="295">inode</text>
+    <text x="498" y="311" font-size="8.5" fill="#64748b">权限 / 大小</text>
+
+    <rect x="561" y="274" width="84" height="48" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.2"/>
+    <text x="603" y="295">块号</text>
+    <text x="603" y="311" font-size="8.5" fill="#64748b">逻辑 → 物理</text>
+
+    <rect x="666" y="274" width="84" height="48" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.2"/>
+    <text x="708" y="295">读块</text>
+    <text x="708" y="311" font-size="8.5" fill="#64748b">返回字节</text>
+  </g>
+  <line x1="332" y1="298" x2="347" y2="298" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arw)"/>
+  <line x1="437" y1="298" x2="452" y2="298" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arw)"/>
+  <line x1="542" y1="298" x2="557" y2="298" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arw)"/>
+  <line x1="647" y1="298" x2="662" y2="298" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arw)"/>
+
+  <text x="246" y="346" font-size="9.5" fill="#b45309">目录树有几层就查几次，每次都要问元数据服务器</text>
+
+  <rect x="780" y="286" width="80" height="9" rx="4.5" fill="#f59e0b"/>
+  <text x="780" y="316" font-size="11" font-weight="bold" fill="#b45309">≈ 1 ms</text>
+  <text x="780" y="334" font-size="9" fill="#94a3b8">本地或局域网</text>
+
+  <!-- ================= 对象存储 ================= -->
+  <rect x="24" y="388" width="912" height="128" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+  <text x="48" y="438" font-size="15" font-weight="bold" fill="#b91c1c">对象存储</text>
+  <text x="48" y="458" font-size="10.5" fill="#94a3b8">查找本身在网络上</text>
+
+  <g font-size="11" fill="#334155" text-anchor="middle">
+    <rect x="246" y="424" width="92" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+    <text x="292" y="445">GET key</text>
+    <text x="292" y="461" font-size="8.5" fill="#64748b">HTTP 请求</text>
+
+    <rect x="364" y="424" width="92" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+    <text x="410" y="445">哈希查表</text>
+    <text x="410" y="461" font-size="8.5" fill="#64748b">按 key 定位</text>
+
+    <rect x="482" y="424" width="92" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+    <text x="528" y="445">目标节点</text>
+    <text x="528" y="461" font-size="8.5" fill="#64748b">分片之一</text>
+
+    <rect x="600" y="424" width="92" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+    <text x="646" y="445">返回对象</text>
+    <text x="646" y="461" font-size="8.5" fill="#64748b">HTTP 响应</text>
+  </g>
+  <line x1="340" y1="448" x2="360" y2="448" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arw)"/>
+  <line x1="458" y1="448" x2="478" y2="448" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arw)"/>
+  <line x1="576" y1="448" x2="596" y2="448" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arw)"/>
+
+  <text x="246" y="496" font-size="9.5" fill="#b91c1c">查找只有 1 次，但在网络另一头，一次请求加一次响应就是一次往返</text>
+
+  <rect x="780" y="436" width="150" height="9" rx="4.5" fill="#ef4444"/>
+  <text x="780" y="466" font-size="11" font-weight="bold" fill="#b91c1c">≈ 50 ms</text>
+  <text x="780" y="484" font-size="9" fill="#94a3b8">跨网络往返</text>
+
+  <!-- ================= 结论 ================= -->
+  <rect x="150" y="552" width="660" height="44" rx="22" fill="#0f172a"/>
+  <text x="480" y="579" font-size="12" fill="#ffffff" text-anchor="middle">延迟由要查几次决定，容量上限由查找表能不能拆开决定</text>
+</svg>

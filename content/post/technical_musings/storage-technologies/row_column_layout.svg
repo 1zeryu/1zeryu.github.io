@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="960" height="620" fill="#ffffff"/>
+
+  <text x="30" y="38" font-size="20" font-weight="bold" fill="#0f172a">行式与列式：同一份表的两种排布</text>
+  <text x="30" y="62" font-size="11" fill="#64748b">数据怎么用（整行读 / 按列读），决定数据该怎么放</text>
+
+  <!-- ================= 示例表 ================= -->
+  <text x="280" y="98" font-size="12" font-weight="bold" fill="#334155">示例数据：一张 4 行 × 5 列的表</text>
+
+  <rect x="280" y="104" width="400" height="130" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+  <rect x="280" y="104" width="400" height="26" fill="#f8fafc"/>
+
+  <!-- 列颜色标识 -->
+  <rect x="280" y="104" width="70" height="4" fill="#3b82f6"/>
+  <rect x="350" y="104" width="70" height="4" fill="#8b5cf6"/>
+  <rect x="420" y="104" width="110" height="4" fill="#22c55e"/>
+  <rect x="530" y="104" width="70" height="4" fill="#d97706"/>
+  <rect x="600" y="104" width="80" height="4" fill="#0891b2"/>
+
+  <line x1="280" y1="130" x2="680" y2="130" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="350" y1="104" x2="350" y2="234" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="420" y1="104" x2="420" y2="234" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="530" y1="104" x2="530" y2="234" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="600" y1="104" x2="600" y2="234" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="280" y1="156" x2="680" y2="156" stroke="#e2e8f0" stroke-width="0.8"/>
+  <line x1="280" y1="182" x2="680" y2="182" stroke="#e2e8f0" stroke-width="0.8"/>
+  <line x1="280" y1="208" x2="680" y2="208" stroke="#e2e8f0" stroke-width="0.8"/>
+
+  <g font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">
+    <text x="315" y="121">frame_id</text>
+    <text x="385" y="121">episode</text>
+    <text x="475" y="121">action</text>
+    <text x="565" y="121">score</text>
+    <text x="640" y="121" font-size="10">pixel_data</text>
+  </g>
+  <g font-size="10.5" fill="#334155" text-anchor="middle">
+    <text x="315" y="147">0</text><text x="385" y="147">0</text><text x="475" y="147">[0.1, 0.2]</text><text x="565" y="147">0.8</text><text x="640" y="147">…</text>
+    <text x="315" y="173">1</text><text x="385" y="173">0</text><text x="475" y="173">[0.1, 0.3]</text><text x="565" y="173">0.7</text><text x="640" y="173">…</text>
+    <text x="315" y="199">2</text><text x="385" y="199">1</text><text x="475" y="199">[0.2, 0.2]</text><text x="565" y="199">0.6</text><text x="640" y="199">…</text>
+    <text x="315" y="225">3</text><text x="385" y="225">1</text><text x="475" y="225">[0.2, 0.4]</text><text x="565" y="225">0.9</text><text x="640" y="225">…</text>
+  </g>
+
+  <!-- ================= 左侧：行式存储 ================= -->
+  <rect x="24" y="262" width="440" height="330" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.4"/>
+  <circle cx="48" cy="289" r="11" fill="#0f172a"/>
+  <text x="48" y="293" font-size="11" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="68" y="294" font-size="14" font-weight="bold" fill="#0f172a">行式存储：整行连续存放</text>
+
+  <rect x="40" y="306" width="408" height="116" rx="8" fill="none" stroke="#ef4444" stroke-width="1.6" stroke-dasharray="5,4"/>
+  <text x="446" y="303" font-size="9.5" fill="#ef4444" text-anchor="end">统计 score ⇒ 整段都要读入</text>
+
+  <rect x="46" y="312" width="396" height="104" rx="6" fill="#ffffff" stroke="#475569" stroke-width="1.4"/>
+
+  <!-- 每行一组，行内字段紧挨 -->
+  <g stroke-width="1.1">
+    <rect x="50" y="340" width="10" height="56" rx="2" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="64" y="340" width="10" height="56" rx="2" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="78" y="340" width="22" height="56" rx="2" fill="#dcfce7" stroke="#22c55e"/>
+    <rect x="104" y="340" width="10" height="56" rx="2" fill="#fef3c7" stroke="#d97706"/>
+    <rect x="118" y="340" width="26" height="56" rx="2" fill="#cffafe" stroke="#0891b2"/>
+
+    <rect x="148" y="340" width="10" height="56" rx="2" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="162" y="340" width="10" height="56" rx="2" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="176" y="340" width="22" height="56" rx="2" fill="#dcfce7" stroke="#22c55e"/>
+    <rect x="202" y="340" width="10" height="56" rx="2" fill="#fef3c7" stroke="#d97706"/>
+    <rect x="216" y="340" width="26" height="56" rx="2" fill="#cffafe" stroke="#0891b2"/>
+
+    <rect x="246" y="340" width="10" height="56" rx="2" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="260" y="340" width="10" height="56" rx="2" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="274" y="340" width="22" height="56" rx="2" fill="#dcfce7" stroke="#22c55e"/>
+    <rect x="300" y="340" width="10" height="56" rx="2" fill="#fef3c7" stroke="#d97706"/>
+    <rect x="314" y="340" width="26" height="56" rx="2" fill="#cffafe" stroke="#0891b2"/>
+
+    <rect x="344" y="340" width="10" height="56" rx="2" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="358" y="340" width="10" height="56" rx="2" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="372" y="340" width="22" height="56" rx="2" fill="#dcfce7" stroke="#22c55e"/>
+    <rect x="398" y="340" width="10" height="56" rx="2" fill="#fef3c7" stroke="#d97706"/>
+    <rect x="412" y="340" width="26" height="56" rx="2" fill="#cffafe" stroke="#0891b2"/>
+  </g>
+  <g font-size="9.5" fill="#334155" text-anchor="middle">
+    <text x="97" y="412">第 0 行</text>
+    <text x="195" y="412">第 1 行</text>
+    <text x="293" y="412">第 2 行</text>
+    <text x="391" y="412">第 3 行</text>
+  </g>
+
+  <g font-size="10" fill="#475569">
+    <text x="46" y="446">• 同一行字段连续：整行读写友好（OLTP）</text>
+    <text x="46" y="468">• 按列统计要把每一行完整读入，读放大明显</text>
+    <text x="46" y="490">• 同列取值分散，压缩率低</text>
+    <text x="46" y="512">• 媒体列和元数据挤在一行，取一行会拖出大对象</text>
+  </g>
+
+  <!-- ================= 右侧：列式存储 ================= -->
+  <rect x="496" y="262" width="440" height="330" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.4"/>
+  <circle cx="512" cy="289" r="11" fill="#0f172a"/>
+  <text x="512" y="293" font-size="11" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="532" y="294" font-size="14" font-weight="bold" fill="#0f172a">列式存储：同列连续存放</text>
+
+  <rect x="518" y="312" width="396" height="104" rx="6" fill="#ffffff" stroke="#475569" stroke-width="1.4"/>
+
+  <g font-size="9" text-anchor="middle">
+    <text x="558" y="329" fill="#1d4ed8">frame_id</text>
+    <text x="637" y="329" fill="#5b21b6">episode</text>
+    <text x="716" y="329" fill="#166534">action</text>
+    <text x="795" y="329" fill="#92400e">score</text>
+    <text x="874" y="329" fill="#0e7490">pixel</text>
+  </g>
+
+  <g stroke-width="1.1">
+    <rect x="522" y="334" width="73" height="64" rx="2" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="601" y="334" width="73" height="64" rx="2" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="680" y="334" width="73" height="64" rx="2" fill="#dcfce7" stroke="#22c55e"/>
+    <rect x="759" y="334" width="73" height="64" rx="2" fill="#fef3c7" stroke="#d97706"/>
+    <rect x="838" y="334" width="73" height="64" rx="2" fill="#cffafe" stroke="#0891b2"/>
+  </g>
+  <g font-size="8.5" text-anchor="middle">
+    <text x="558" y="350" fill="#1d4ed8">0</text>
+    <text x="558" y="364" fill="#1d4ed8">1</text>
+    <text x="558" y="378" fill="#1d4ed8">2</text>
+    <text x="558" y="392" fill="#1d4ed8">3</text>
+
+    <text x="637" y="350" fill="#5b21b6">0</text>
+    <text x="637" y="364" fill="#5b21b6">0</text>
+    <text x="637" y="378" fill="#5b21b6">1</text>
+    <text x="637" y="392" fill="#5b21b6">1</text>
+
+    <text x="716" y="350" fill="#166534">[0.1, 0.2]</text>
+    <text x="716" y="364" fill="#166534">[0.1, 0.3]</text>
+    <text x="716" y="378" fill="#166534">[0.2, 0.2]</text>
+    <text x="716" y="392" fill="#166534">[0.2, 0.4]</text>
+
+    <text x="795" y="350" fill="#92400e">0.8</text>
+    <text x="795" y="364" fill="#92400e">0.7</text>
+    <text x="795" y="378" fill="#92400e">0.6</text>
+    <text x="795" y="392" fill="#92400e">0.9</text>
+
+    <text x="874" y="350" fill="#0e7490">…</text>
+    <text x="874" y="364" fill="#0e7490">…</text>
+    <text x="874" y="378" fill="#0e7490">…</text>
+    <text x="874" y="392" fill="#0e7490">…</text>
+  </g>
+
+  <rect x="753" y="318" width="84" height="88" rx="6" fill="none" stroke="#ef4444" stroke-width="1.6" stroke-dasharray="5,4"/>
+  <text x="912" y="303" font-size="9.5" fill="#ef4444" text-anchor="end">统计 score ⇒ 只读这一列</text>
+
+  <g font-size="10" fill="#475569">
+    <text x="518" y="446">• 同列取值连续：按列统计友好（OLAP）</text>
+    <text x="518" y="468">• 同列类型一致、重复度高 → 字典 / RLE 压缩率高</text>
+    <text x="518" y="490">• 整行读取需跨列拼接，更新靠追加新文件 + 重写</text>
+    <text x="518" y="512">• 媒体列独立成列，可按页单独读取</text>
+  </g>
+</svg>
