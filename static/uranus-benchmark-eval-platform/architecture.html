@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uranus 评测平台 · 交互式架构图</title>
+<style>
+  :root{
+    --bg:#f8fafc; --panel:#ffffff; --line:#e2e8f0; --text:#0f172a; --muted:#64748b;
+    --blue:#3b82f6; --blue-bg:#eff6ff;
+    --green:#10b981; --green-bg:#ecfdf5;
+    --purple:#8b5cf6; --purple-bg:#f5f3ff;
+    --amber:#f59e0b; --amber-bg:#fffbeb;
+    --slate:#475569; --slate-bg:#f8fafc;
+    --red:#dc2626; --red-bg:#fee2e2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  header{max-width:1180px;margin:0 auto;padding:28px 20px 6px}
+  header h1{font-size:20px;margin:0 0 6px}
+  header p{margin:0;color:var(--muted);font-size:13px}
+  .layout{max-width:1180px;margin:0 auto;padding:16px 20px 48px;
+    display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:20px;align-items:start}
+  @media (max-width:860px){.layout{grid-template-columns:1fr}}
+
+  .diagram{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .row{display:flex;gap:12px;margin-bottom:12px}
+  .row.center{justify-content:center}
+  .node{flex:1;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;
+    background:#fff;cursor:pointer;transition:.15s;position:relative}
+  .node:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(15,23,42,.08)}
+  .node.active{box-shadow:0 0 0 3px rgba(59,130,246,.25);border-color:var(--blue)}
+  .node.dim{opacity:.45}
+  .node .t{font-size:13px;font-weight:700;margin-bottom:2px}
+  .node .s{font-size:11px;color:var(--muted)}
+  .node .tag{position:absolute;top:8px;right:9px;font-size:9px;padding:1px 6px;
+    border-radius:99px;background:#f1f5f9;color:var(--muted)}
+  .blue{border-color:var(--blue);background:var(--blue-bg)}
+  .blue .t{color:#1e40af}
+  .green{border-color:var(--green);background:var(--green-bg)}
+  .green .t{color:#065f46}
+  .purple{border-color:var(--purple);background:var(--purple-bg)}
+  .purple .t{color:#5b21b6}
+  .amber{border-color:var(--amber);background:var(--amber-bg)}
+  .amber .t{color:#92400e}
+  .slate{border-color:var(--slate);background:var(--slate-bg)}
+  .slate .t{color:#1e293b}
+  .red{border-color:var(--red);background:var(--red-bg)}
+  .red .t{color:#991b1b}
+  .wide{flex:1}
+  .arrow{text-align:center;color:#94a3b8;font-size:12px;line-height:1;margin:-6px 0 6px;letter-spacing:2px}
+  .cluster{border:1.4px dashed #94a3b8;border-radius:12px;padding:12px;background:#fafafa;margin-top:4px}
+  .cluster-title{font-size:12px;font-weight:700;color:#334155;margin-bottom:10px}
+  .cluster .row{margin-bottom:10px}
+  .cluster .row:last-child{margin-bottom:0}
+  .legend{margin-top:12px;font-size:11px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+  .legend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:middle}
+  .legend .l1::before{background:var(--blue)} .legend .l2::before{background:var(--green)}
+  .legend .l3::before{background:var(--amber)} .legend .l4::before{background:var(--slate)}
+
+  .detail{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;position:sticky;top:16px}
+  .detail h2{font-size:15px;margin:0 0 4px}
+  .detail .kind{font-size:11px;color:var(--muted);margin-bottom:14px}
+  .detail .empty{color:var(--muted);font-size:13px}
+  .field{margin-bottom:14px}
+  .field .k{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+  .field .v{font-size:13px}
+  .field ul{margin:4px 0 0;padding-left:18px;font-size:13px}
+  .field li{margin-bottom:3px}
+  code{background:#f1f5f9;border-radius:4px;padding:1px 5px;font-size:12px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .note{margin-top:16px;padding:10px 12px;background:#fffbeb;border-left:3px solid var(--amber);
+    font-size:12px;color:#78350f;border-radius:0 6px 6px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>Uranus 评测平台 · 交互式架构图</h1>
+  <p>点击任意组件查看职责、调用关系与关键约束。评测容器只与对象存储交互，从不连接数据库。</p>
+</header>
+
+<div class="layout">
+  <div class="diagram" id="diagram">
+    <div class="row center">
+      <div class="node blue" data-key="client" style="max-width:320px">
+        <div class="t">参赛者浏览器</div>
+        <div class="s">上传 zip · 看榜单 · 看自己的视频</div>
+        <div class="tag">外部</div>
+      </div>
+    </div>
+    <div class="arrow">↓ HTTPS</div>
+
+    <div class="row">
+      <div class="node purple" data-key="apig">
+        <div class="t">API 网关（APIG）</div>
+        <div class="s">/ → 静态站　/api/v1 → API 函数</div>
+        <div class="tag">入口</div>
+      </div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="row">
+      <div class="node green" data-key="api">
+        <div class="t">veFaaS API 函数</div>
+        <div class="s">Python 3.12 · FastAPI · 唯一常驻业务逻辑</div>
+        <div class="tag">按请求计费</div>
+      </div>
+      <div class="node blue" data-key="web">
+        <div class="t">veFaaS Web 函数</div>
+        <div class="s">Node 20 · 静态站 · 托管构建产物</div>
+        <div class="tag">按请求计费</div>
+      </div>
+    </div>
+    <div class="arrow">↓ 读写</div>
+
+    <div class="row">
+      <div class="node amber" data-key="tos">
+        <div class="t">对象存储 TOS</div>
+        <div class="s">上传包 · 评测产物 · 真值数据集</div>
+        <div class="tag">私有 ACL</div>
+      </div>
+      <div class="node slate" data-key="mongo">
+        <div class="t">MongoDB</div>
+        <div class="s">状态机 · 指标明细 · 指标注册表</div>
+        <div class="tag">私网</div>
+      </div>
+    </div>
+
+    <div class="cluster">
+      <div class="cluster-title">VKE 集群（namespace: uranus）· 评测在这里发生</div>
+      <div class="row">
+        <div class="node amber" data-key="dispatcher">
+          <div class="t">uranus-dispatcher（CronJob）</div>
+          <div class="s">每 2 分钟对账 · 补缺失的 Job</div>
+          <div class="tag">常驻 8C/64G</div>
+        </div>
+        <div class="node amber" data-key="publish">
+          <div class="t">uranus-publish（CronJob）</div>
+          <div class="s">每日 10:00 · 重建榜单快照</div>
+          <div class="tag">常驻 8C/64G</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="node blue" data-key="prepare">
+          <div class="t">prepare</div>
+          <div class="s">解包 · 白名单校验</div>
+        </div>
+        <div class="node green" data-key="cpuunit">
+          <div class="t">CPU 单元</div>
+          <div class="s">psnr / vlm / embed / tracks</div>
+        </div>
+        <div class="node red" data-key="gpuunit">
+          <div class="t">GPU 单元</div>
+          <div class="s">flow / quality / lpips / cdfvd</div>
+        </div>
+        <div class="node slate" data-key="aggregate">
+          <div class="t">aggregate</div>
+          <div class="s">汇总 · 写 summary.json</div>
+        </div>
+      </div>
+      <div class="cluster-title" style="font-weight:400;color:#64748b;margin:6px 0 0">
+        prepare / 单元 / aggregate 均为 VCI 一次性容器，跑完即释放，不产生空转费用
+      </div>
+    </div>
+
+    <div class="legend">
+      <span class="l1">请求路径</span>
+      <span class="l2">计算单元</span>
+      <span class="l3">调度与存储</span>
+      <span class="l4">记录与汇总</span>
+    </div>
+  </div>
+
+  <aside class="detail" id="detail">
+    <div class="empty">点击左侧任意组件查看详情。</div>
+  </aside>
+</div>
+
+<script>
+const DATA = {
+  client: {
+    name: "参赛者浏览器", kind: "外部客户端",
+    duty: "创建提交、申请上传地址、把 zip 直传对象存储、查看榜单与自己的视频。",
+    links: ["经 HTTPS 访问 API 网关", "通过预签名 URL 直接读写 TOS，文件流不经过函数"],
+    facts: ["单包上限 10 GB", "预签名有效期 900 秒", "前端全部使用相对路径 /api/v1"]
+  },
+  apig: {
+    name: "API 网关（APIG）", kind: "流量入口",
+    duty: "同域分发：根路径交给前端静态站，/api/v1 前缀交给 API 函数。",
+    links: ["上游是浏览器", "下游是 API 函数与 Web 函数"],
+    facts: ["/api/v1 路由必须排在 SPA 兜底路由之前", "同步请求体上限 16 MiB，这是三段式上传存在的原因"]
+  },
+  api: {
+    name: "veFaaS API 函数", kind: "常驻业务逻辑",
+    duty: "会话换证、提交增删查、签发预签名、组榜单、运维接口。不执行评测。",
+    links: ["读写 MongoDB 记录", "向 TOS 签发预签名、校验对象是否存在", "不调用任何评测容器"],
+    facts: ["Python 3.12 + FastAPI，监听 8000", "会话 / 提交 / 榜单 / 运维四组路由", "按请求计费，无请求不产生费用"]
+  },
+  web: {
+    name: "veFaaS Web 函数", kind: "静态站",
+    duty: "托管前端构建产物，纯静态，不跑服务端逻辑。",
+    links: ["由网关转发根路径请求", "前端通过同域 /api/v1 调后端"],
+    facts: ["Node 20 运行时", "包根必须带 DefaultCaddyFile", "发布时必须在 dist 目录内打包"]
+  },
+  tos: {
+    name: "对象存储 TOS", kind: "大对象存储",
+    duty: "存放上传包、评测结果 JSON、真值数据集、参赛包，以及容器之间的中间产物。",
+    links: ["浏览器直传直下（预签名）", "API 函数做存在性校验", "评测容器只读写这里"],
+    facts: ["桶 uranus-data，私有 ACL", "根前缀 users/.../Uranus-Benchmark", "真值目录没有任何对外签名接口"]
+  },
+  mongo: {
+    name: "MongoDB", kind: "记录数据库",
+    duty: "存提交状态机、指标明细、指标注册表、数据集自检报告与令牌黑名单。",
+    links: ["API 函数读写", "dispatcher 每轮扫描状态", "评测容器不连接"],
+    facts: ["库 uranus_benchmark，与函数同 VPC 私网", "集合：submissions / metric_scores / config / dataset_status / revoked_tokens", "最小规格按量计费"]
+  },
+  dispatcher: {
+    name: "uranus-dispatcher", kind: "K8s CronJob",
+    duty: "每 2 分钟读一次未完成的提交，按产物是否存在判断缺哪些单元，再补建 Job。",
+    links: ["读 MongoDB 的状态", "向 VCI 创建 Job", "读 TOS 判断产物是否齐全"],
+    facts: ["concurrencyPolicy: Forbid，单副本", "自身超时 600 秒", "不保存内存状态，随时可重启"]
+  },
+  publish: {
+    name: "uranus-publish", kind: "K8s CronJob",
+    duty: "每日固定时间重建榜单快照，把各榜的排名与分数固化下来。",
+    links: ["读 MongoDB 的指标明细", "写 TOS 上的榜单快照"],
+    facts: ["每日 10:00（Asia/Shanghai）", "时区必须显式声明，否则按 UTC 触发"]
+  },
+  prepare: {
+    name: "prepare 单元", kind: "VCI 一次性容器",
+    duty: "解包、白名单校验、把视频归一化到固定目录、写出校验报告。",
+    links: ["读 TOS 的 input.zip", "写 validation_report.json", "失败类型为 validation，不允许重试"],
+    facts: ["CPU 规格 2C/8G", "白名单按目录层级逐项检查", "通过后调度器才推导出评测范围"]
+  },
+  cpuunit: {
+    name: "CPU 评测单元", kind: "VCI 一次性容器",
+    duty: "像素级指标，以及调用远程模型服务的指标（多模态评分、视频嵌入、轨迹）。",
+    links: ["读 TOS 的输入包", "写 results/<unit>.json", "不连接数据库"],
+    facts: ["镜像为 uranus-units（CPU）", "不钉规格族，由平台匹配最小可用规格", "超时 3 小时"]
+  },
+  gpuunit: {
+    name: "GPU 评测单元", kind: "VCI 一次性容器",
+    duty: "光流、画质、感知相似度、分布距离四类需要 GPU 的指标。",
+    links: ["读 TOS 的输入包", "写 results/<unit>.json", "一条提交的四个单元锁定同一个可用区"],
+    facts: ["镜像为 uranus-units-gpu，约 20 GB", "规格族按优先级列表尝试，最后才用通用族", "配额按 账号×地域×可用区×规格族 计"]
+  },
+  aggregate: {
+    name: "aggregate 单元", kind: "VCI 一次性容器",
+    duty: "等所有单元出结果后汇总成各指标分数与总分，写出 summary.json。",
+    links: ["读各单元的 results/*.json", "写 summary.json", "调度器读到后写 metric_scores"],
+    facts: ["缺任一必测指标则总分作废", "只汇总，不重新计算", "完成后触发状态流转到 completed"]
+  }
+};
+
+const REL = {
+  client: ["apig","tos"],
+  apig: ["client","api","web"],
+  api: ["apig","mongo","tos"],
+  web: ["apig"],
+  tos: ["api","client","prepare","cpuunit","gpuunit","aggregate"],
+  mongo: ["api","dispatcher","publish"],
+  dispatcher: ["mongo","prepare","cpuunit","gpuunit","aggregate"],
+  publish: ["mongo"],
+  prepare: ["dispatcher","tos"],
+  cpuunit: ["dispatcher","tos"],
+  gpuunit: ["dispatcher","tos"],
+  aggregate: ["dispatcher","tos"]
+};
+
+const detail = document.getElementById('detail');
+const nodes = [...document.querySelectorAll('.node')];
+
+function render(key){
+  const d = DATA[key];
+  if(!d) return;
+  detail.innerHTML = `
+    <h2>${d.name}</h2>
+    <div class="kind">${d.kind}</div>
+    <div class="field"><div class="k">职责</div><div class="v">${d.duty}</div></div>
+    <div class="field"><div class="k">调用关系</div>
+      <ul>${d.links.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div class="field"><div class="k">关键约束</div>
+      <ul>${d.facts.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div class="note">评测计算与业务接口完全解耦：函数只签名和记录，容器只读写对象存储。</div>`;
+}
+
+nodes.forEach(n=>{
+  n.addEventListener('click',()=>{
+    const key = n.dataset.key;
+    nodes.forEach(x=>x.classList.remove('active','dim'));
+    n.classList.add('active');
+    const rel = REL[key] || [];
+    nodes.forEach(x=>{ if(x!==n && !rel.includes(x.dataset.key)) x.classList.add('dim'); });
+    render(key);
+  });
+});
+</script>
+</body>
+</html>

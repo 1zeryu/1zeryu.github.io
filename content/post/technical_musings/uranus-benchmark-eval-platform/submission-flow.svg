@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="b2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="b3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b5cf6"/>
+    </marker>
+    <marker id="b4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- 参与者 -->
+  <g font-size="15" font-weight="bold" text-anchor="middle">
+    <rect x="10" y="14" width="120" height="40" rx="7" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.6"/>
+    <text x="70" y="40" fill="#1e40af">浏览器</text>
+
+    <rect x="160" y="14" width="120" height="40" rx="7" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
+    <text x="220" y="40" fill="#065f46">API 函数</text>
+
+    <rect x="310" y="14" width="120" height="40" rx="7" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.6"/>
+    <text x="370" y="40" fill="#92400e">TOS</text>
+
+    <rect x="460" y="14" width="120" height="40" rx="7" fill="#f8fafc" stroke="#475569" stroke-width="1.6"/>
+    <text x="520" y="40" fill="#0f172a">MongoDB</text>
+
+    <rect x="610" y="14" width="120" height="40" rx="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+    <text x="670" y="40" fill="#92400e">dispatcher</text>
+
+    <rect x="760" y="14" width="130" height="40" rx="7" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6"/>
+    <text x="825" y="40" fill="#991b1b">VCI 容器</text>
+  </g>
+
+  <!-- 生命线 -->
+  <g stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="5 5">
+    <line x1="70" y1="54" x2="70" y2="616"/>
+    <line x1="220" y1="54" x2="220" y2="616"/>
+    <line x1="370" y1="54" x2="370" y2="616"/>
+    <line x1="520" y1="54" x2="520" y2="616"/>
+    <line x1="670" y1="54" x2="670" y2="616"/>
+    <line x1="825" y1="54" x2="825" y2="616"/>
+  </g>
+
+  <!-- 阶段背景 -->
+  <rect x="8" y="66" width="884" height="218" rx="7" fill="#f8fafc"/>
+  <rect x="8" y="290" width="884" height="110" rx="7" fill="#f5f3ff"/>
+  <rect x="8" y="406" width="884" height="108" rx="7" fill="#fef2f2"/>
+  <rect x="8" y="520" width="884" height="90" rx="7" fill="#ecfdf5"/>
+
+  <text x="18" y="86" font-size="14" font-weight="bold" fill="#64748b">① 上传</text>
+  <text x="18" y="310" font-size="14" font-weight="bold" fill="#6d28d9">② 校验</text>
+  <text x="18" y="426" font-size="14" font-weight="bold" fill="#b91c1c">③ 评测</text>
+  <text x="18" y="540" font-size="14" font-weight="bold" fill="#047857">④ 计分</text>
+
+  <!-- ① 上传 -->
+  <g font-size="14" fill="#1e40af">
+    <line x1="70" y1="104" x2="218" y2="104" stroke="#3b82f6" stroke-width="1.8" marker-end="url(#b1)"/>
+    <text x="144" y="97" text-anchor="middle">创建提交</text>
+  </g>
+  <g font-size="14" fill="#92620b">
+    <line x1="220" y1="140" x2="518" y2="140" stroke="#f59e0b" stroke-width="1.6" marker-end="url(#b2)"/>
+    <text x="369" y="133" text-anchor="middle">写入 status=queued</text>
+  </g>
+  <g font-size="14" fill="#1e40af">
+    <line x1="70" y1="176" x2="218" y2="176" stroke="#3b82f6" stroke-width="1.8" marker-end="url(#b1)"/>
+    <text x="144" y="169" text-anchor="middle">申请上传地址</text>
+  </g>
+  <g font-size="14" fill="#1e40af">
+    <line x1="220" y1="212" x2="72" y2="212" stroke="#3b82f6" stroke-width="1.8" marker-end="url(#b1)"/>
+    <text x="146" y="205" text-anchor="middle">预签名 900 秒</text>
+  </g>
+  <g font-size="14" fill="#92620b">
+    <line x1="70" y1="248" x2="368" y2="248" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#b2)"/>
+    <text x="219" y="241" text-anchor="middle">直传 input.zip</text>
+  </g>
+  <g font-size="14" fill="#92620b">
+    <line x1="220" y1="274" x2="518" y2="274" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#b2)"/>
+    <text x="369" y="267" text-anchor="middle">校验后置 validating</text>
+  </g>
+
+  <!-- ② 校验 -->
+  <g font-size="14" fill="#6d28d9">
+    <line x1="670" y1="318" x2="522" y2="318" stroke="#8b5cf6" stroke-width="1.7" marker-end="url(#b3)"/>
+    <text x="596" y="311" text-anchor="middle">每 2 分钟扫描</text>
+  </g>
+  <g font-size="14" fill="#475569">
+    <line x1="670" y1="350" x2="823" y2="350" stroke="#64748b" stroke-width="1.7" marker-end="url(#b4)"/>
+    <text x="746" y="343" text-anchor="middle">建 prepare Job</text>
+  </g>
+  <g font-size="14" fill="#92620b">
+    <line x1="825" y1="382" x2="372" y2="382" stroke="#f59e0b" stroke-width="1.6" marker-end="url(#b2)"/>
+    <text x="598" y="375" text-anchor="middle">解包并写校验报告</text>
+  </g>
+
+  <!-- ③ 评测 -->
+  <g font-size="14" fill="#475569">
+    <line x1="670" y1="434" x2="823" y2="434" stroke="#64748b" stroke-width="1.7" marker-end="url(#b4)"/>
+    <text x="746" y="427" text-anchor="middle">建评测 Job</text>
+  </g>
+  <g font-size="14" fill="#92620b">
+    <line x1="825" y1="466" x2="372" y2="466" stroke="#f59e0b" stroke-width="1.6" marker-end="url(#b2)"/>
+    <text x="598" y="459" text-anchor="middle">写 results.json</text>
+  </g>
+  <g font-size="14" fill="#475569">
+    <line x1="670" y1="498" x2="823" y2="498" stroke="#64748b" stroke-width="1.7" marker-end="url(#b4)"/>
+    <text x="746" y="491" text-anchor="middle">结果齐 → aggregate</text>
+  </g>
+
+  <!-- ④ 计分 -->
+  <g font-size="14" fill="#92620b">
+    <line x1="825" y1="546" x2="372" y2="546" stroke="#f59e0b" stroke-width="1.6" marker-end="url(#b2)"/>
+    <text x="598" y="539" text-anchor="middle">写 summary.json</text>
+  </g>
+  <g font-size="14" fill="#6d28d9">
+    <line x1="670" y1="578" x2="522" y2="578" stroke="#8b5cf6" stroke-width="1.7" marker-end="url(#b3)"/>
+    <text x="596" y="571" text-anchor="middle">置 completed</text>
+  </g>
+
+  <text x="450" y="632" font-size="13" fill="#94a3b8" text-anchor="middle">函数只负责签名与记录，真正的计算由 dispatcher 按需拉起的一次性容器完成</text>
+</svg>

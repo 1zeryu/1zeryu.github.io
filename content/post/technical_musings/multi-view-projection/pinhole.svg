@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" width="760" height="430" font-family="Helvetica, Arial, sans-serif">
+  <rect width="760" height="430" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="40" y="40" font-size="15" fill="#111827" font-weight="bold">小孔成像：三维点沿直线穿过光心，落在成像平面上</text>
+  <text x="40" y="64" font-size="13" fill="#4b5563">同样横向偏移的物点，离得越远（Z 越大），像点离画面中心越近</text>
+
+  <!-- 相机机身 -->
+  <rect x="40" y="140" width="70" height="100" rx="6" fill="#eef2f7" stroke="#33415c" stroke-width="2"/>
+  <text x="75" y="124" font-size="13" fill="#33415c" text-anchor="middle">相机</text>
+
+  <!-- 成像平面（虚拟像平面，画在光心前方） -->
+  <line x1="150" y1="80" x2="150" y2="320" stroke="#9aa5b1" stroke-width="2" stroke-dasharray="6,5"/>
+  <text x="150" y="340" font-size="13" fill="#6b7684" text-anchor="middle">成像平面</text>
+
+  <!-- 相机光轴 -->
+  <line x1="110" y1="190" x2="716" y2="190" stroke="#c8d0da" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="726" y="194" font-size="12" fill="#8a94a6">光轴</text>
+
+  <!-- 光心 O -->
+  <circle cx="110" cy="190" r="5" fill="#d7263d"/>
+  <text x="122" y="216" font-size="14" fill="#d7263d">光心 O</text>
+
+  <!-- 物点 P -->
+  <circle cx="640" cy="95" r="6" fill="#1b6ca8"/>
+  <text x="634" y="84" font-size="14" fill="#1b6ca8" text-anchor="end">物点 P (X, Y, Z)</text>
+
+  <!-- 从 P 到光心的射线，穿过成像平面 -->
+  <line x1="640" y1="95" x2="110" y2="190" stroke="#1b6ca8" stroke-width="1.8"/>
+
+  <!-- 像点 p -->
+  <circle cx="150" cy="182.5" r="5" fill="#1b6ca8"/>
+  <line x1="156" y1="176" x2="176" y2="156" stroke="#1b6ca8" stroke-width="1"/>
+  <text x="180" y="152" font-size="13" fill="#1b6ca8">像点 p (u, v)</text>
+
+  <!-- 焦距标注 -->
+  <line x1="110" y1="104" x2="150" y2="104" stroke="#33415c" stroke-width="1.5"/>
+  <line x1="110" y1="98" x2="110" y2="110" stroke="#33415c" stroke-width="1.5"/>
+  <line x1="150" y1="98" x2="150" y2="110" stroke="#33415c" stroke-width="1.5"/>
+  <text x="130" y="92" font-size="13" fill="#33415c" text-anchor="middle">f</text>
+
+  <!-- 深度标注 -->
+  <line x1="150" y1="356" x2="640" y2="356" stroke="#33415c" stroke-width="1.5"/>
+  <line x1="150" y1="350" x2="150" y2="362" stroke="#33415c" stroke-width="1.5"/>
+  <line x1="640" y1="350" x2="640" y2="362" stroke="#33415c" stroke-width="1.5"/>
+  <text x="395" y="378" font-size="13" fill="#33415c" text-anchor="middle">深度 Z（相机到物点的距离）</text>
+
+  <!-- 说明 -->
+  <text x="40" y="400" font-size="12" fill="#8a94a6">注：这里把成像平面画在光心前方，是投影几何里常用的等价画法（虚拟像平面），好处是像不倒立；</text>
+  <text x="40" y="418" font-size="12" fill="#8a94a6">真实相机的像成在光心后方，并且上下颠倒。</text>
+</svg>

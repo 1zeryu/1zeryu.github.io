@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" font-family="Helvetica, Arial, sans-serif">
+  <rect width="900" height="300" fill="#ffffff"/>
+  <text x="30" y="34" font-size="15" fill="#111827" font-weight="bold">一个 3D 点要走过的坐标系链条</text>
+
+  <!-- 方框 -->
+  <g font-size="13">
+    <rect x="30" y="96" width="130" height="56" rx="8" fill="#e8f1fb" stroke="#1b6ca8" stroke-width="2"/>
+    <text x="95" y="120" text-anchor="middle" fill="#0f4a75">世界坐标系</text>
+    <text x="95" y="138" text-anchor="middle" fill="#5b7b97" font-size="11">整个房间的地板原点</text>
+
+    <rect x="212" y="96" width="130" height="56" rx="8" fill="#eef2f7" stroke="#33415c" stroke-width="2"/>
+    <text x="277" y="120" text-anchor="middle" fill="#33415c">机器人底座</text>
+    <text x="277" y="138" text-anchor="middle" fill="#6b7684" font-size="11">机器人自己的原点</text>
+
+    <rect x="394" y="96" width="130" height="56" rx="8" fill="#eef2f7" stroke="#33415c" stroke-width="2"/>
+    <text x="459" y="120" text-anchor="middle" fill="#33415c">腕部 link</text>
+    <text x="459" y="138" text-anchor="middle" fill="#6b7684" font-size="11">随关节角运动</text>
+
+    <rect x="576" y="96" width="130" height="56" rx="8" fill="#eef2f7" stroke="#33415c" stroke-width="2"/>
+    <text x="641" y="120" text-anchor="middle" fill="#33415c">相机坐标系</text>
+    <text x="641" y="138" text-anchor="middle" fill="#6b7684" font-size="11">光心为原点</text>
+
+    <rect x="758" y="96" width="112" height="56" rx="8" fill="#fdecef" stroke="#d7263d" stroke-width="2"/>
+    <text x="814" y="120" text-anchor="middle" fill="#a51a2c">像素坐标</text>
+    <text x="814" y="138" text-anchor="middle" fill="#c2556a" font-size="11">u, v</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g stroke="#4b5563" stroke-width="2" fill="#4b5563">
+    <line x1="160" y1="124" x2="204" y2="124"/>
+    <polygon points="204,124 196,120 196,128"/>
+    <line x1="342" y1="124" x2="386" y2="124"/>
+    <polygon points="386,124 378,120 378,128"/>
+    <line x1="524" y1="124" x2="568" y2="124"/>
+    <polygon points="568,124 560,120 560,128"/>
+    <line x1="706" y1="124" x2="750" y2="124"/>
+    <polygon points="750,124 742,120 742,128"/>
+  </g>
+
+  <!-- 变换标注 -->
+  <g font-size="12" fill="#4b5563" text-anchor="middle">
+    <text x="182" y="86">T_world_from_base</text>
+    <text x="182" y="176" font-size="11" fill="#8a94a6">固定（安装位置）</text>
+
+    <text x="364" y="86">正向运动学 FK</text>
+    <text x="364" y="176" font-size="11" fill="#8a94a6">逐帧变化（关节角）</text>
+
+    <text x="546" y="86">T_link_from_camera</text>
+    <text x="546" y="176" font-size="11" fill="#8a94a6">固定（手眼标定）</text>
+
+    <text x="728" y="86">内参 K + 透视除法</text>
+    <text x="728" y="176" font-size="11" fill="#8a94a6">固定（相机参数）</text>
+  </g>
+
+  <!-- 底部提示 -->
+  <rect x="30" y="216" width="840" height="56" rx="8" fill="#f7f9fc" stroke="#d5dde7"/>
+  <text x="46" y="240" font-size="13" fill="#334155">关键点：相机装在会动的腕上时，前两步逐帧变化、后两步固定 —— 所以腕部外参必须</text>
+  <text x="46" y="260" font-size="13" fill="#334155">「逐帧 FK 位姿 × 一份固定手眼标定」拼出来，任何一环错了，投影就会整体偏掉。</text>
+</svg>

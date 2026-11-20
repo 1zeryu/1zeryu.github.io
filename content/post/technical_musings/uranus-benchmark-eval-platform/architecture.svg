@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 644" font-family="system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <!-- 浏览器 -->
+  <rect x="340" y="16" width="220" height="56" rx="9" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="450" y="42" font-size="17" font-weight="bold" fill="#1e3a8a" text-anchor="middle">参赛者浏览器</text>
+  <text x="450" y="61" font-size="14" fill="#475569" text-anchor="middle">上传 · 看榜</text>
+  <line x1="450" y1="72" x2="450" y2="94" stroke="#475569" stroke-width="2" marker-end="url(#a1)"/>
+
+  <!-- 网关 -->
+  <rect x="80" y="96" width="740" height="56" rx="9" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="100" y="120" font-size="17" font-weight="bold" fill="#5b21b6">API 网关</text>
+  <text x="100" y="141" font-size="14" fill="#475569">/ → 前端静态站　　/api/v1 → API 函数　　（同域，无 CORS）</text>
+  <line x1="240" y1="152" x2="240" y2="176" stroke="#475569" stroke-width="2" marker-end="url(#a1)"/>
+  <line x1="660" y1="152" x2="660" y2="176" stroke="#475569" stroke-width="2" marker-end="url(#a1)"/>
+
+  <!-- 函数 -->
+  <rect x="80" y="178" width="330" height="92" rx="9" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <text x="100" y="204" font-size="17" font-weight="bold" fill="#065f46">veFaaS API 函数</text>
+  <text x="100" y="228" font-size="14" fill="#475569">签名 · 记录 · 组榜单</text>
+  <text x="100" y="250" font-size="14" fill="#059669">不跑评测，按请求计费</text>
+
+  <rect x="490" y="178" width="330" height="92" rx="9" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="510" y="204" font-size="17" font-weight="bold" fill="#1e40af">veFaaS Web 函数</text>
+  <text x="510" y="228" font-size="14" fill="#475569">托管前端静态站</text>
+  <text x="510" y="250" font-size="14" fill="#2563eb">不跑服务端逻辑</text>
+
+  <!-- 数据层 -->
+  <rect x="80" y="306" width="330" height="86" rx="9" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+  <text x="100" y="332" font-size="17" font-weight="bold" fill="#92400e">对象存储 TOS</text>
+  <text x="100" y="356" font-size="14" fill="#475569">上传包 · 评测产物 · 真值数据</text>
+  <text x="100" y="377" font-size="14" fill="#b45309">预签名直传，单包上限 10 GB</text>
+
+  <rect x="490" y="306" width="330" height="86" rx="9" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+  <text x="510" y="332" font-size="17" font-weight="bold" fill="#0f172a">MongoDB</text>
+  <text x="510" y="356" font-size="14" fill="#475569">状态机 · 指标明细 · 注册表</text>
+  <text x="510" y="377" font-size="14" fill="#334155">只存可查询的小记录</text>
+
+  <line x1="240" y1="270" x2="240" y2="304" stroke="#f59e0b" stroke-width="2" marker-start="url(#a2)" marker-end="url(#a2)"/>
+  <path d="M410,224 L450,224 L450,349 L488,349" fill="none" stroke="#475569" stroke-width="2" marker-start="url(#a1)" marker-end="url(#a1)"/>
+
+  <!-- K8s -->
+  <rect x="80" y="428" width="740" height="176" rx="11" fill="#fafafa" stroke="#64748b" stroke-width="1.8" stroke-dasharray="7 5"/>
+  <text x="100" y="452" font-size="15" font-weight="bold" fill="#334155">VKE 集群 · 评测在这里发生</text>
+
+  <rect x="100" y="464" width="310" height="60" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <text x="255" y="488" font-size="15" font-weight="bold" fill="#92400e" text-anchor="middle">uranus-dispatcher</text>
+  <text x="255" y="509" font-size="14" fill="#78350f" text-anchor="middle">每 2 分钟对账，补缺失的 Job</text>
+
+  <rect x="100" y="532" width="310" height="52" rx="8" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="255" y="553" font-size="14" font-weight="bold" fill="#713f12" text-anchor="middle">uranus-publish</text>
+  <text x="255" y="572" font-size="13" fill="#78350f" text-anchor="middle">每日 10:00 重建榜单</text>
+
+  <rect x="436" y="464" width="364" height="120" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="452" y="486" font-size="14" font-weight="bold" fill="#1e293b">VCI 按需容器 · 跑完即释放</text>
+
+  <rect x="452" y="496" width="106" height="46" rx="7" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="505" y="516" font-size="14" font-weight="bold" fill="#075985" text-anchor="middle">prepare</text>
+  <text x="505" y="533" font-size="13" fill="#0369a1" text-anchor="middle">解包校验</text>
+
+  <rect x="566" y="496" width="108" height="46" rx="7" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="620" y="516" font-size="14" font-weight="bold" fill="#115e59" text-anchor="middle">CPU 单元</text>
+  <text x="620" y="533" font-size="13" fill="#0f766e" text-anchor="middle">psnr · vlm 等</text>
+
+  <rect x="682" y="496" width="102" height="46" rx="7" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="733" y="516" font-size="14" font-weight="bold" fill="#991b1b" text-anchor="middle">GPU 单元</text>
+  <text x="733" y="533" font-size="13" fill="#b91c1c" text-anchor="middle">flow · lpips 等</text>
+
+  <rect x="452" y="550" width="332" height="26" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="618" y="568" font-size="13" fill="#334155" text-anchor="middle">aggregate · 汇总并写出 summary.json</text>
+
+  <line x1="410" y1="494" x2="434" y2="494" stroke="#475569" stroke-width="2" marker-end="url(#a1)"/>
+  <path d="M100,492 L60,492 L60,349 L78,349" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4" marker-start="url(#a2)" marker-end="url(#a2)"/>
+
+  <text x="450" y="634" font-size="13" fill="#94a3b8" text-anchor="middle">实线 = 请求路径　虚线 = 数据路径　容器只连对象存储，不连数据库</text>
+</svg>

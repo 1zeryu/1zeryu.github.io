@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" font-family="Helvetica, Arial, sans-serif">
+  <rect width="900" height="400" fill="#ffffff"/>
+  <text x="24" y="32" font-size="15" fill="#111827" font-weight="bold">四条标定路线：信息源决定上限</text>
+  <text x="24" y="52" font-size="12" fill="#6b7684">同一架 4×4 矩阵，四条路的「已知」完全不同 —— 选错路线，后面对参数的任何微调都是徒劳</text>
+
+  <!-- 路线 A -->
+  <g>
+    <rect x="24" y="72" width="204" height="212" rx="8" fill="#e8f1fb" stroke="#1b6ca8" stroke-width="2"/>
+    <text x="38" y="96" font-size="13" fill="#0f4a75" font-weight="bold">A · 标定板 + 手眼标定</text>
+    <text x="38" y="114" font-size="11" fill="#5b7b97">AX = XB，eye-in-hand</text>
+    <line x1="38" y1="124" x2="214" y2="124" stroke="#b9d3e8"/>
+    <text x="38" y="146" font-size="11" fill="#0f4a75" font-weight="bold">信息源</text>
+    <text x="38" y="162" font-size="11" fill="#334155">已知尺寸的标定板</text>
+    <text x="38" y="184" font-size="11" fill="#0f4a75" font-weight="bold">前提</text>
+    <text x="38" y="200" font-size="11" fill="#334155">能回现场、能动机械臂</text>
+    <text x="38" y="222" font-size="11" fill="#0f4a75" font-weight="bold">精度</text>
+    <text x="38" y="238" font-size="11" fill="#334155">±2 mm / ±0.2°</text>
+    <text x="38" y="260" font-size="11" fill="#0f4a75" font-weight="bold">代价</text>
+    <text x="38" y="276" font-size="11" fill="#334155">高（必须回到设备前）</text>
+  </g>
+
+  <!-- 路线 B -->
+  <g>
+    <rect x="240" y="72" width="204" height="212" rx="8" fill="#fdecef" stroke="#d7263d" stroke-width="2"/>
+    <text x="254" y="96" font-size="13" fill="#a51a2c" font-weight="bold">B · 骨架投影拟合</text>
+    <text x="254" y="114" font-size="11" fill="#c2556a">用机器人自身几何当标定物</text>
+    <line x1="254" y1="124" x2="430" y2="124" stroke="#f0bcc5"/>
+    <text x="254" y="146" font-size="11" fill="#a51a2c" font-weight="bold">信息源</text>
+    <text x="254" y="162" font-size="11" fill="#334155">FK 骨架 + 图像里的臂像素</text>
+    <text x="254" y="184" font-size="11" fill="#a51a2c" font-weight="bold">前提</text>
+    <text x="254" y="200" font-size="11" fill="#334155">能可靠分割出机械臂</text>
+    <text x="254" y="222" font-size="11" fill="#a51a2c" font-weight="bold">精度</text>
+    <text x="254" y="238" font-size="11" fill="#334155">不确定（依赖分割质量）</text>
+    <text x="254" y="260" font-size="11" fill="#a51a2c" font-weight="bold">代价</text>
+    <text x="254" y="276" font-size="11" fill="#334155">低（纯离线，几行 scipy）</text>
+  </g>
+
+  <!-- 路线 C -->
+  <g>
+    <rect x="456" y="72" width="204" height="212" rx="8" fill="#eef7f0" stroke="#2f7d4f" stroke-width="2"/>
+    <text x="470" y="96" font-size="13" fill="#1d5133" font-weight="bold">C · 学习式无标定板</text>
+    <text x="470" y="114" font-size="11" fill="#4f8a68">DINOv2 + 跟踪 + 时序 PnP</text>
+    <line x1="470" y1="124" x2="646" y2="124" stroke="#bfdcc9"/>
+    <text x="470" y="146" font-size="11" fill="#1d5133" font-weight="bold">信息源</text>
+    <text x="470" y="162" font-size="11" fill="#334155">深度特征 + 跨帧轨迹</text>
+    <text x="470" y="184" font-size="11" fill="#1d5133" font-weight="bold">前提</text>
+    <text x="470" y="200" font-size="11" fill="#334155">有 mesh、有预训练权重</text>
+    <text x="470" y="222" font-size="11" fill="#1d5133" font-weight="bold">精度</text>
+    <text x="470" y="238" font-size="11" fill="#334155">中（依赖外观相似度）</text>
+    <text x="470" y="260" font-size="11" fill="#1d5133" font-weight="bold">代价</text>
+    <text x="470" y="276" font-size="11" fill="#334155">中高（权重 + 算力）</text>
+  </g>
+
+  <!-- 路线 D -->
+  <g>
+    <rect x="672" y="72" width="204" height="212" rx="8" fill="#f2f4f7" stroke="#6b7684" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="686" y="96" font-size="13" fill="#33415c" font-weight="bold">D · 手填名义值</text>
+    <text x="686" y="114" font-size="11" fill="#8a94a6">照机械图纸量一个矩阵</text>
+    <line x1="686" y1="124" x2="862" y2="124" stroke="#d5dde7"/>
+    <text x="686" y="146" font-size="11" fill="#33415c" font-weight="bold">信息源</text>
+    <text x="686" y="162" font-size="11" fill="#334155">设计值，不是实测值</text>
+    <text x="686" y="184" font-size="11" fill="#33415c" font-weight="bold">前提</text>
+    <text x="686" y="200" font-size="11" fill="#334155">无（这也是它危险的地方）</text>
+    <text x="686" y="222" font-size="11" fill="#33415c" font-weight="bold">精度</text>
+    <text x="686" y="238" font-size="11" fill="#334155">几 mm ~ 十几 cm</text>
+    <text x="686" y="260" font-size="11" fill="#33415c" font-weight="bold">代价</text>
+    <text x="686" y="276" font-size="11" fill="#334155">零（所以到处都在用）</text>
+  </g>
+
+  <!-- 底部结论 -->
+  <rect x="24" y="302" width="852" height="76" rx="8" fill="#f7f9fc" stroke="#d5dde7"/>
+  <text x="40" y="326" font-size="13" fill="#334155">选择原则：现场能回就选 A；回不去但有可靠初始值选 B（先验证分割信号）；完全没有初始值选 C；</text>
+  <text x="40" y="348" font-size="13" fill="#334155">D 只能用于原型，且必须在配置里显式标注「nominal」，否则半年后没人知道这是猜的。</text>
+  <text x="40" y="368" font-size="11" fill="#8a94a6">本文的踩坑属于 B：工具本身没错，但「用暗像素近似机械臂」在腕部视角彻底失效。</text>
+</svg>
