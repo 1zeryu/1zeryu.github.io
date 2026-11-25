@@ -91,7 +91,6 @@ if not is_within_tol.all():
 
 突然明白了，看似更难的路，实际上可能是捷径。重编码虽然慢且占额外空间，但是只需要做一次，且能保证往后的正确性。
 
-## 引用
 
 [^agibot2026]: AgiBot World 2026，智元机器人（AgiBot）发布的大规模真实世界操作数据集（含 ImitationLearning / RichInteraction 子集）。
 [^droid]: Khazatsky A, Pertsch K, Nasiriany S, et al. DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset. arXiv:2403.12945, 2024. https://arxiv.org/abs/2403.12945
